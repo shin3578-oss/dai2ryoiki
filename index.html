@@ -389,9 +389,54 @@
   .foot-row .cc{font-size:.82rem;color:var(--ink-3);}
   .foot-note{margin-top:1.2rem;font-size:.74rem;color:var(--ink-3);line-height:1.7;max-width:52em;}
 
+
+  /* ---------- motion ---------- */
+  .cnum{font-style:normal;font-variant-numeric:tabular-nums;}
+
+
+  /* 「動いている」ことを示す小さな灯り */
+  .device-head .pdot{animation:live 2.6s ease-in-out infinite;}
+  @keyframes live{
+    0%,100%{box-shadow:0 0 0 4px rgba(111,211,188,.16);}
+    50%    {box-shadow:0 0 0 9px rgba(111,211,188,.04);}
+  }
+
+  /* 通知は1件ずつ流れ込む */
+  .fi{opacity:0;transform:translateX(14px);
+    transition:opacity .55s ease,transform .55s cubic-bezier(.22,.7,.28,1);}
+  .fi.in{opacity:1;transform:none;}
+  .fi .pill{transition:background .3s ease;}
+  .fi.in .pill{animation:pop .5s ease both;}
+  @keyframes pop{0%{transform:scale(.86);opacity:0;}60%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+
+  /* できること：見出しのアイコンがふわりと乗る */
+  .grp-head .badge{transition:transform .5s cubic-bezier(.22,.7,.28,1);}
+  .grp-head.in .badge{animation:settle .7s cubic-bezier(.22,.7,.28,1) both;}
+  @keyframes settle{0%{transform:translateY(-8px) rotate(-6deg);}100%{transform:none;}}
+
+  /* 導入の流れ：番号が浮かび上がる */
+  .step.in .sn{animation:sn 1s cubic-bezier(.22,.7,.28,1) both;}
+  @keyframes sn{0%{opacity:0;transform:translateY(10px) scale(.9);}100%{opacity:1;transform:none;}}
+
+  /* ボタンは、置いてあるだけに見えないよう静かに呼吸する */
+  .cta .btn-primary{animation:breathe 4.5s ease-in-out infinite;}
+  @keyframes breathe{
+    0%,100%{box-shadow:0 10px 30px rgba(111,211,188,.24);}
+    50%    {box-shadow:0 14px 40px rgba(111,211,188,.42);}
+  }
+
   /* ---------- reveal ---------- */
-  .rise{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rise{opacity:0;transform:translateY(14px);
+    transition:opacity .62s cubic-bezier(.22,.7,.28,1),transform .62s cubic-bezier(.22,.7,.28,1);
+    will-change:opacity,transform;}
   .rise.in{opacity:1;transform:none;}
+
+  /* 写真は、ほんの少し寄った状態から引きながら出す（.rise より後に置く） */
+  .rise.hero-photo,.rise.band,.rise.band-full,.shot>.rise{
+    transform:translateY(10px) scale(1.05);
+    transition:opacity .8s cubic-bezier(.22,.7,.28,1),transform 1.25s cubic-bezier(.22,.7,.28,1);}
+  .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
+
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important;}</style></noscript>
 
@@ -429,9 +474,9 @@
       </div>
 
       <div class="figures rise">
-        <div class="figure"><b>60<span class="u">以上</span></b><span>自動化した院内の業務</span></div>
-        <div class="figure"><b>60<span class="u">時間/月</span></b><span>減らした手作業（自院実績）</span></div>
-        <div class="figure"><b>3.5<span class="u">億円</span></b><span>1医院での年商（分院なし）</span></div>
+        <div class="figure"><b><i class="cnum" data-to="60">0</i><span class="u">以上</span></b><span>自動化した院内の業務</span></div>
+        <div class="figure"><b><i class="cnum" data-to="60">0</i><span class="u">時間/月</span></b><span>減らした手作業（自院実績）</span></div>
+        <div class="figure"><b><i class="cnum" data-to="3.5" data-dec="1">0</i><span class="u">億円</span></b><span>1医院での年商（分院なし）</span></div>
       </div>
     </div>
   </section>
@@ -691,12 +736,12 @@
       <div class="price rise">
         <div class="price-row">
           <div class="price-k">はじめの構築</div>
-          <div class="price-v">20<span>万円 〜</span></div>
+          <div class="price-v"><i class="cnum" data-to="20">0</i><span>万円 〜</span></div>
           <div class="price-d">医院に合わせた設定・接続・動作確認まで。自動化する業務の数によって変わります。</div>
         </div>
         <div class="price-row">
           <div class="price-k">月額サポート</div>
-          <div class="price-v">3<span>万円／月 〜</span></div>
+          <div class="price-v"><i class="cnum" data-to="3">0</i><span>万円／月 〜</span></div>
           <div class="price-d">動かし続ける、調整する、止まったら直す。仕組みが何本あっても同じ金額です。</div>
         </div>
         <div class="price-row">
@@ -711,12 +756,12 @@
         <div class="hire-grid">
           <div class="hire-box">
             <div class="t">パートの事務スタッフを1人</div>
-            <div class="v">年 約200万円</div>
+            <div class="v">年 約<i class="cnum" data-to="200">0</i>万円</div>
             <div class="n">週5日・1日6時間・時給1,200円の場合。社会保険の医院負担を含めた概算です。採用と教育の手間は別にかかります。</div>
           </div>
           <div class="hire-box on">
             <div class="t">第2領域</div>
-            <div class="v">初年度 56万円<br>2年目以降 年36万円</div>
+            <div class="v">初年度 <i class="cnum" data-to="56">0</i>万円<br>2年目以降 年<i class="cnum" data-to="36">0</i>万円</div>
             <div class="n">はじめの構築20万円＋月額3万円で計算。採用も教育も、辞めることもありません。</div>
           </div>
         </div>
@@ -822,12 +867,94 @@
 
 <script>
   (function(){
-    var els=document.querySelectorAll('.rise');
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(el,i){el.style.transitionDelay=(Math.min(i%5,4)*70)+'ms';io.observe(el);});
+    var doc = document;
+    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // これまで「かたまり」で出していた箱は、箱自体を出さない
+    doc.querySelectorAll('.shots,.vs,.faq,.price,.grp,.figures').forEach(function(e){
+      e.classList.remove('rise');
+    });
+    // 代わりに、中の項目をひとつずつ出す
+    ['.grp-head','.svc-item','.shot','.shot>div','.vs-head','.vs-row','.faq-item',
+     '.price-row','.figure','.hire-risk>div','.pain','.fi'].forEach(function(sel){
+      doc.querySelectorAll(sel).forEach(function(e){ e.classList.add('rise'); });
+    });
+
+    var els = doc.querySelectorAll('.rise, .hero-photo, .band, .band-full');
+    if(!('IntersectionObserver' in window) || still){
+      els.forEach(function(e){ e.classList.add('in'); });
+      countAll();
+      return;
+    }
+
+    // 同じ親の中にあるものは、少しずつ時間をずらして出す
+    var count = new Map();
+    els.forEach(function(el){
+      var p = el.parentNode, i = count.get(p) || 0;
+      count.set(p, i + 1);
+      // 通知フィードは「順に届く」感じを出すため、間隔を広めに
+      var step = el.classList.contains('fi') ? 220 : 60;
+      el.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+    });
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        // 中に数字があれば、そこで数え上げる
+        e.target.querySelectorAll && e.target.querySelectorAll('.cnum').forEach(countUp);
+        if(e.target.classList.contains('cnum')) countUp(e.target);
+      });
+    }, {threshold:.1, rootMargin:'0px 0px -60px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+
+    // 数字を 0 から本来の値まで数え上げる
+    function countUp(el){
+      if(el.dataset.done) return;
+      el.dataset.done = '1';
+      var to  = parseFloat(el.dataset.to);
+      var dec = parseInt(el.dataset.dec || '0', 10);
+      var dur = 1100, t0 = null;
+      function tick(now){
+        if(t0 === null) t0 = now;
+        var p = Math.min((now - t0) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);           // 最後にゆっくり止まる
+        el.textContent = (to * e).toFixed(dec);
+        if(p < 1) requestAnimationFrame(tick);
+        else el.textContent = to.toFixed(dec);
+      }
+      requestAnimationFrame(tick);
+    }
+    function countAll(){ doc.querySelectorAll('.cnum').forEach(countUp); }
+
+    // 数字だけの要素も見張る（親が先に出てしまう場合の保険）
+    doc.querySelectorAll('.cnum').forEach(function(el){ io.observe(el); });
+
+    // 勢いよくスクロールすると監視が追いつかず、数字が 0 のまま残ることがある。
+    // スクロールのたびに「もう画面を通り過ぎたもの」を拾い直す。
+    function reveal(el){
+      if(el.classList.contains('in')) return;
+      el.classList.add('in');
+      io.unobserve(el);
+      if(el.querySelectorAll) el.querySelectorAll('.cnum').forEach(countUp);
+      if(el.classList.contains('cnum')) countUp(el);
+    }
+    var ticking = false;
+    function sweep(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var h = window.innerHeight;
+        els.forEach(function(el){
+          if(el.classList.contains('in')) return;
+          if(el.getBoundingClientRect().top < h * 0.94) reveal(el);
+        });
+      });
+    }
+    addEventListener('scroll', sweep, {passive:true});
+    addEventListener('resize', sweep, {passive:true});
   })();
 </script>
 
