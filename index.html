@@ -299,6 +299,28 @@
   .cta .btn-primary{margin-top:2.2rem;}
   .cta .fine{margin-top:1.4rem;font-size:.84rem;color:var(--hero-muted);}
 
+  /* ---------- contact form ---------- */
+  .cf{margin-top:2.6rem;text-align:left;}
+  .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem;}
+  @media(max-width:640px){.cf-grid{grid-template-columns:1fr;}}
+  .cf label{display:block;font-size:.82rem;font-weight:700;color:var(--hero-mint);letter-spacing:.04em;}
+  .cf label.wide{grid-column:1/-1;}
+  .cf input,.cf select,.cf textarea{
+    display:block;width:100%;margin-top:.5rem;padding:.85rem 1rem;
+    font:inherit;font-size:1rem;color:var(--hero-ink);
+    background:rgba(255,255,255,.06);border:1px solid rgba(241,246,243,.22);border-radius:8px;
+    -webkit-appearance:none;appearance:none;}
+  .cf textarea{resize:vertical;min-height:7em;line-height:1.8;}
+  .cf select{background-image:linear-gradient(45deg,transparent 50%,var(--hero-mint) 50%),linear-gradient(135deg,var(--hero-mint) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 1.35em,calc(100% - 14px) 1.35em;background-size:6px 6px;background-repeat:no-repeat;}
+  .cf select option{color:#16211E;}
+  .cf input:focus,.cf select:focus,.cf textarea:focus{outline:2px solid var(--hero-mint);outline-offset:1px;border-color:transparent;}
+  .cf input::placeholder,.cf textarea::placeholder{color:rgba(230,244,239,.42);}
+  .cf .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+  .cf .send{margin-top:1.8rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;}
+  .cf .send button{border:0;cursor:pointer;}
+  .cf .note{font-size:.84rem;color:var(--hero-muted);line-height:1.8;}
+
   /* ---------- footer ---------- */
   footer.foot{padding:2.6rem 0;border-top:1px solid var(--line);}
   .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;}
@@ -619,9 +641,29 @@
   <section class="cta-band" id="contact">
     <div class="wrap cta">
       <h2 class="rise"><span class="nw">「うちのこれ、</span><span class="nw">AIにできる？」</span><br><span class="nw">その一言から</span><span class="nw">始まります。</span></h2>
-      <p class="rise">メールを1通いただくだけです。お困りごとを伺い、自動化できるか・どれだけ時間が浮くかを、正直にお伝えします。合わなければ、その場でお断りください。</p>
-      <a class="btn btn-primary rise" href="mailto:shin3578@gmail.com?subject=%E7%AC%AC2%E9%A0%98%E5%9F%9F%20%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AE%E7%9B%B8%E8%AB%87">まずは聞いてみる <span class="arw">→</span></a>
-      <p class="fine rise">現役の院長が直接お答えします。売り込みの電話はしません。</p>
+      <p class="rise">下の欄を埋めて送るだけです。お困りごとを伺い、自動化できるか・どれだけ時間が浮くかを、正直にお伝えします。合わなければ、その場でお断りください。</p>
+      <form class="cf rise" method="post" action="https://script.google.com/macros/s/AKfycbwrynraP4mw0Gv3M0wEiwbgjTh1-haMnrrN83Br61c31_6KmaXCWKkuQ1bIY0AApobbBA/exec">
+        <div class="cf-grid">
+          <label>医院名<input type="text" name="clinic" required placeholder="〇〇歯科クリニック"></label>
+          <label>お名前<input type="text" name="name" required placeholder="山田 太郎"></label>
+          <label>メールアドレス<input type="email" name="email" placeholder="info@example.com"></label>
+          <label>電話番号（任意）<input type="tel" name="tel" placeholder="03-0000-0000"></label>
+          <label class="wide">どちらですか
+            <select name="kind">
+              <option>歯科医院</option>
+              <option>医科クリニック</option>
+              <option>その他・まだ決まっていない</option>
+            </select>
+          </label>
+          <label class="wide">お困りごと・聞いてみたいこと
+            <textarea name="body" rows="4" placeholder="例：月末の自費の集計に毎月5時間かかっています。これは自動化できますか？"></textarea></label>
+        </div>
+        <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="send">
+          <button class="btn btn-primary" type="submit">送信する <span class="arw">→</span></button>
+          <p class="note">現役の院長が直接お答えします。<br>売り込みの電話はしません。</p>
+        </div>
+      </form>
     </div>
   </section>
 
