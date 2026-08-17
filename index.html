@@ -308,6 +308,11 @@
   .price-v.free{font-size:clamp(1.6rem,3vw,2rem);}
   .price-d{color:var(--ink-2);font-size:.93rem;line-height:1.8;}
 
+  .tiers{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin-top:.9rem;}
+  .tiers>span{font-size:.82rem;color:var(--ink);background:var(--surface-2);
+    border:1px solid var(--line);border-radius:999px;padding:.3rem .85rem;white-space:nowrap;}
+  .tiers>span b{color:var(--green-2);font-weight:700;margin-right:.4em;}
+
   /* ---------- hire compare ---------- */
   .hire{margin-top:clamp(2.6rem,5vw,3.6rem);background:var(--surface-2);border:1px solid var(--line);
     border-radius:var(--r);padding:clamp(1.6rem,3.5vw,2.4rem);}
@@ -350,6 +355,14 @@
   .faq-item p{margin-top:.6rem;color:var(--ink-2);font-size:.95rem;line-height:1.9;
     display:grid;grid-template-columns:1.6em 1fr;gap:.3em;}
   .faq-item p::before{content:"A";font-family:var(--serif);color:var(--ink-3);font-size:1.05em;}
+
+  /* ---------- notice ---------- */
+  .notice{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+  @media(max-width:760px){.notice{grid-template-columns:1fr;}}
+  .notice div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.4rem;}
+  .notice>div>b{display:block;font-size:1rem;font-weight:700;}
+  .notice p b{color:var(--ink);font-weight:700;}
+  .notice p{margin-top:.45rem;font-size:.92rem;color:var(--ink-2);line-height:1.85;}
 
   /* ---------- cta ---------- */
   .cta-band{background:var(--hero-bg);color:var(--hero-ink);position:relative;overflow:hidden;}
@@ -732,7 +745,7 @@
     <div class="wrap narrow">
       <div class="kicker rise"><span class="eyebrow">料金の目安</span></div>
       <h2 class="h2 rise"><span class="nw">はじめに一度と、</span><br><span class="nw">あとは</span><span class="nw">月額だけです。</span></h2>
-      <p class="sec-intro rise">作業量では課金しません。何件処理しても、医院が伸びても、月額は変わりません。</p>
+      <p class="sec-intro rise"><b>処理する件数では、料金は上がりません。</b>患者さんが増えても、集計する量が倍になっても同じです。月額が変わるのは、お預かりする<b>仕組みの本数</b>が増えたときだけです。</p>
       <div class="price rise">
         <div class="price-row">
           <div class="price-k">はじめの構築</div>
@@ -742,7 +755,13 @@
         <div class="price-row">
           <div class="price-k">月額サポート</div>
           <div class="price-v"><i class="cnum" data-to="3">0</i><span>万円／月 〜</span></div>
-          <div class="price-d">動かし続ける、調整する、止まったら直す。仕組みが何本あっても同じ金額です。</div>
+          <div class="price-d">動かし続ける、調整する、止まったら直す。<b>お預かりしている仕組みの本数</b>で決まります。
+            <span class="tiers">
+              <span><b>〜3本</b>月 30,000円</span>
+              <span><b>4〜8本</b>月 50,000円</span>
+              <span><b>9本〜</b>月 80,000円</span>
+            </span>
+          </div>
         </div>
         <div class="price-row">
           <div class="price-k">相談・お見積り</div>
@@ -818,6 +837,41 @@
         <div class="faq-item">
           <h3>クリニックのDXと何が違うのですか？</h3>
           <p>新しいシステムに乗り換えていただく必要がない点です。いま使っているものはそのままに、そのあいだの手作業だけをAIが引き受けます。入れ替えに伴う教育も、移行作業も発生しません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICE -->
+  <section id="notice">
+    <div class="wrap narrow">
+      <div class="kicker rise"><span class="eyebrow">先にお伝えしておきます</span></div>
+      <h2 class="h2 rise"><span class="nw">都合の悪いことも、</span><br><span class="nw">先に</span><span class="nw">書いておきます。</span></h2>
+      <p class="sec-intro rise">あとから知ると腹が立つことは、契約の前に知っておいたほうがいいと思っています。</p>
+      <div class="notice rise">
+        <div>
+          <b>外部サービスの利用料は、医院のご負担です</b>
+          <p>仕組みを動かすのに有料のサービスが必要な場合、その契約と利用料は医院側でお持ちいただきます。月に数百円で済むことも、数千円かかることもあります。<b>必ず事前に金額をお伝えし、ご承諾いただいてから</b>進めます。勝手に契約することはありません。</p>
+        </div>
+        <div>
+          <b>いつでもやめられます</b>
+          <p>当月末までにお申し出いただければ、翌月から停止します。違約金も、引き止めもありません。停止後も、それまでに作った仕組みと記録はすべて医院のアカウントに残ります。</p>
+        </div>
+        <div>
+          <b>止まることも、あります</b>
+          <p>お使いのシステムの画面が変わったり、パスワードが変更されると、仕組みは止まります。<b>止まったことがその日のうちに分かる仕組み</b>をあわせてお渡しし、直すところまで月額サポートに含みます。「動いているつもりで止まっていた」が一番怖いので、そこは必ず作ります。</p>
+        </div>
+        <div>
+          <b>同時にお受けできるのは、3院までです</b>
+          <p>私は毎日診療しています。手が回る数を超えて引き受けると、どの医院にも中途半端になります。<b>いまお受けできるのは3院まで</b>とし、埋まっているときは順番をお待ちいただくか、お断りします。自分が事務に沈まないために作ったものなので、そこは曲げません。</p>
+        </div>
+        <div>
+          <b>お返事は2営業日以内、対応は診療の合間です</b>
+          <p>本業は歯科診療です。緊急の停止には優先して対応しますが、日中すぐに電話がつながるわけではありません。<b>常駐のサポート窓口が必要な医院には向きません。</b>そこは正直にお伝えします。</p>
+        </div>
+        <div>
+          <b>医療の判断はしません</b>
+          <p>AIが出すのは下書きと候補です。算定するか、患者さんに何をお伝えするか、最終的に決めるのは医院です。事務作業だけを引き受けます。</p>
         </div>
       </div>
     </div>
