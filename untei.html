@@ -373,9 +373,54 @@
   .foot-row .cc{font-size:.82rem;color:var(--ink-3);}
   .foot-note{margin-top:1.2rem;font-size:.74rem;color:var(--ink-3);line-height:1.7;max-width:52em;}
 
+
+  /* ---------- motion ---------- */
+  .cnum{font-style:normal;font-variant-numeric:tabular-nums;}
+
+
+  /* 「動いている」ことを示す小さな灯り */
+  .device-head .pdot{animation:live 2.6s ease-in-out infinite;}
+  @keyframes live{
+    0%,100%{box-shadow:0 0 0 4px rgba(111,211,188,.16);}
+    50%    {box-shadow:0 0 0 9px rgba(111,211,188,.04);}
+  }
+
+  /* 通知は1件ずつ流れ込む */
+  .fi{opacity:0;transform:translateX(14px);
+    transition:opacity .55s ease,transform .55s cubic-bezier(.22,.7,.28,1);}
+  .fi.in{opacity:1;transform:none;}
+  .fi .pill{transition:background .3s ease;}
+  .fi.in .pill{animation:pop .5s ease both;}
+  @keyframes pop{0%{transform:scale(.86);opacity:0;}60%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+
+  /* できること：見出しのアイコンがふわりと乗る */
+  .grp-head .badge{transition:transform .5s cubic-bezier(.22,.7,.28,1);}
+  .grp-head.in .badge{animation:settle .7s cubic-bezier(.22,.7,.28,1) both;}
+  @keyframes settle{0%{transform:translateY(-8px) rotate(-6deg);}100%{transform:none;}}
+
+  /* 導入の流れ：番号が浮かび上がる */
+  .step.in .sn{animation:sn 1s cubic-bezier(.22,.7,.28,1) both;}
+  @keyframes sn{0%{opacity:0;transform:translateY(10px) scale(.9);}100%{opacity:1;transform:none;}}
+
+  /* ボタンは、置いてあるだけに見えないよう静かに呼吸する */
+  .cta .btn-primary{animation:breathe 4.5s ease-in-out infinite;}
+  @keyframes breathe{
+    0%,100%{box-shadow:0 10px 30px rgba(111,211,188,.24);}
+    50%    {box-shadow:0 14px 40px rgba(111,211,188,.42);}
+  }
+
   /* ---------- reveal ---------- */
-  .rise{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rise{opacity:0;transform:translateY(14px);
+    transition:opacity .62s cubic-bezier(.22,.7,.28,1),transform .62s cubic-bezier(.22,.7,.28,1);
+    will-change:opacity,transform;}
   .rise.in{opacity:1;transform:none;}
+
+  /* 写真は、ほんの少し寄った状態から引きながら出す（.rise より後に置く） */
+  .rise.hero-photo,.rise.band,.rise.band-full,.shot>.rise{
+    transform:translateY(10px) scale(1.05);
+    transition:opacity .8s cubic-bezier(.22,.7,.28,1),transform 1.25s cubic-bezier(.22,.7,.28,1);}
+  .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
+
 </style>
 <header>
   <div class="wrap nav">
