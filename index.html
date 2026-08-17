@@ -285,6 +285,9 @@
 
   /* ---------- steps ---------- */
   .steps{margin-top:clamp(2.2rem,4vw,3rem);display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .steps4{grid-template-columns:repeat(4,1fr);gap:1rem;}
+  @media(max-width:1000px){.steps4{grid-template-columns:repeat(2,1fr);}}
+  .step p b{font-weight:700;color:var(--ink);}
   @media(max-width:720px){.steps{grid-template-columns:1fr;}}
   .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.9rem 1.7rem;position:relative;}
   .step .sn{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--green-soft);font-weight:600;position:absolute;top:1.3rem;right:1.5rem;}
@@ -730,12 +733,13 @@
   <section class="pain-band" id="flow">
     <div class="wrap">
       <div class="kicker rise"><span class="eyebrow">導入の流れ</span></div>
-      <h2 class="h2 rise"><span class="nw">相談から稼働まで、</span><br><span class="nw">むずかしい作業は</span><span class="nw">こちらで。</span></h2>
+      <h2 class="h2 rise"><span class="nw">いきなり</span><span class="nw">任せきりにはしません。</span></h2>
       <div class="band b-tab rise" role="img" aria-label="スタッフが一緒に画面を見て話している様子" style="aspect-ratio:16/6;"></div>
-      <div class="steps">
+      <div class="steps steps4">
         <div class="step rise"><span class="sn serif">1</span><div class="lbl">STEP 01</div><h3>相談する</h3><p>医院の困りごとを伺います。合わないと思えば、無理な導入はしません。</p><span class="free">費用なし</span></div>
         <div class="step rise"><span class="sn serif">2</span><div class="lbl">STEP 02</div><h3>設定はおまかせ</h3><p>お使いのシステムに合わせた設定・接続を、こちらで行います。</p></div>
-        <div class="step rise"><span class="sn serif">3</span><div class="lbl">STEP 03</div><h3>あとは自動</h3><p>毎日AIが動きます。調整や改善は、月額サポートで継続対応。</p></div>
+        <div class="step rise"><span class="sn serif">3</span><div class="lbl">STEP 03</div><h3>一緒に慣らす</h3><p>最初のひと月ふた月は、<b>これまでのやり方と並べて</b>動かします。ズレたら直す。それを何度か繰り返して、任せられる状態に持っていきます。</p><span class="free">ここが肝心です</span></div>
+        <div class="step rise"><span class="sn serif">4</span><div class="lbl">STEP 04</div><h3>あとは自動</h3><p>毎日AIが動きます。調整や改善は、月額サポートで続けて対応します。</p></div>
       </div>
     </div>
   </section>
@@ -863,6 +867,10 @@
         <div>
           <b>お返事は2営業日以内、対応は診療の合間です</b>
           <p>本業は歯科診療です。緊急の停止には優先して対応しますが、日中すぐに電話がつながるわけではありません。<b>常駐のサポート窓口が必要な医院には向きません。</b>そこは正直にお伝えします。</p>
+        </div>
+        <div>
+          <b>一度で完成することは、まずありません</b>
+          <p>自動化は、作って終わりではありません。実際の患者さんのデータで動かすと、想定していなかった例外が必ず出ます。<b>最初のひと月ふた月は、これまでのやり方と並べて動かし、ズレを見つけては直します。</b>その手間を織り込んだうえで月額をいただいています。一発で完璧に動くという言い方はしません。</p>
         </div>
         <div>
           <b>医療の判断はしません</b>
