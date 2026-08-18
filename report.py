@@ -167,6 +167,9 @@ def main():
     msg = "\n".join(L)
     print(msg)
 
+    if os.environ.get("NO_NOTIFY", "").lower() in ("1", "true", "yes"):
+        print("\n[no_notify が指定されているため送信しません（動作確認用）]")
+        return
     pat = os.environ.get("NOTIFY_PAT", "")
     if not pat:
         print("\n[NOTIFY_PAT が無いため送信しません]")
