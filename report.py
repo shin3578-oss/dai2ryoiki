@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """第2領域 デイリーレポート
 
-昨日のサイトのアクセス状況をGA4から取り、LINEワークスの院長DMへ1通送る。
+サイトのアクセス状況をGA4から取り、LINEワークスの院長DMへ1通送る。
+21:00に読む前提なので「今日」を主役にし、確定値の「昨日」を添える。
+月〜土の運転なので、月曜の「昨日」で日曜分も拾える（日曜が抜け落ちない）。
 通知は apotool の lw_notify.yml を呼び出して行う（この置き場に鍵を持たない）。
 """
 import json
@@ -13,6 +15,7 @@ from datetime import datetime, timedelta, timezone
 PROPERTY = "550291203"          # Dai2Ryoiki Site
 SITE = "https://shin3578-oss.github.io/dai2ryoiki/"
 JST = timezone(timedelta(hours=9))
+WD = "月火水木金土日"
 
 
 def token():
@@ -36,29 +39,29 @@ def report(tok, body):
 
 def one(res, i=0):
     rows = res.get("rows", [])
-    return int(rows[0]["metricValues"][i]["value"]) if rows else 0
+    return int(float(rows[0]["metricValues"][i]["value"])) if rows else 0
 
 
 def listing(res, limit=5):
     out = []
     for row in res.get("rows", [])[:limit]:
-        name = row["dimensionValues"][0]["value"]
-        val = row["metricValues"][0]["value"]
-        out.append((name, int(val)))
+        out.append((row["dimensionValues"][0]["value"],
+                    int(float(row["metricValues"][0]["value"]))))
     return out
 
 
 def main():
     tok = token()
-    y = (datetime.now(JST) - timedelta(days=1)).strftime("%Y-%m-%d")
-    prev = (datetime.now(JST) - timedelta(days=2)).strftime("%Y-%m-%d")
-    rng = [{"startDate": y, "endDate": y}]
+    now = datetime.now(JST)
+    today = now.strftime("%Y-%m-%d")
+    yday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+    rng = [{"startDate": today, "endDate": today}]
 
     total = report(tok, {"dateRanges": rng,
                          "metrics": [{"name": "activeUsers"},
                                      {"name": "screenPageViews"},
                                      {"name": "averageSessionDuration"}]})
-    before = report(tok, {"dateRanges": [{"startDate": prev, "endDate": prev}],
+    before = report(tok, {"dateRanges": [{"startDate": yday, "endDate": yday}],
                           "metrics": [{"name": "activeUsers"}]})
     src = report(tok, {"dateRanges": rng,
                        "dimensions": [{"name": "sessionSource"}],
@@ -68,36 +71,45 @@ def main():
                          "dimensions": [{"name": "pagePath"}],
                          "metrics": [{"name": "screenPageViews"}],
                          "orderBys": [{"metric": {"metricName": "screenPageViews"}, "desc": True}]})
-    week = report(tok, {"dateRanges": [{"startDate": "7daysAgo", "endDate": "yesterday"}],
+    week = report(tok, {"dateRanges": [{"startDate": "6daysAgo", "endDate": "today"}],
                         "metrics": [{"name": "activeUsers"}]})
 
     users, views = one(total, 0), one(total, 1)
     secs = 0
     if total.get("rows"):
         secs = int(float(total["rows"][0]["metricValues"][2]["value"]))
-    yday = one(before)
-    diff = users - yday
-    arrow = "→ 前日と同じ" if diff == 0 else (f"↑ 前日より{diff}人増" if diff > 0 else f"↓ 前日より{-diff}人減")
+    ycount = one(before)
+    diff = users - ycount
+    arrow = "前日と同じ" if diff == 0 else (f"前日より{diff}人増" if diff > 0 else f"前日より{-diff}人減")
 
-    L = [f"【第2領域 デイリーレポート】{y}", ""]
-    if users == 0:
-        L += ["昨日の訪問者はいませんでした。", "",
-              "まだ誰にもURLを知らせていない段階なので、想定どおりです。"]
+    L = [f"【第2領域 デイリーレポート】{now.month}月{now.day}日"
+         f"（{WD[now.weekday()]}）21時時点", ""]
+    if users == 0 and ycount == 0:
+        L += ["今日も昨日も、訪問者はいませんでした。", "",
+              "まだ検索から見つけてもらえる段階ではないので、想定どおりです。"]
+    elif users == 0:
+        L += ["今日の訪問者はいませんでした。", "",
+              f"昨日は {ycount}人 でした。"]
     else:
-        L += [f"訪問者　　 {users}人（{arrow}）",
-              f"ページ表示 {views}回",
-              f"滞在時間　 平均 {secs // 60}分{secs % 60}秒", ""]
+        L += [f"今日の訪問者　{users}人（{arrow}）",
+              f"ページ表示　　{views}回"]
+        if secs:
+            L.append(f"滞在時間　　　平均 {secs // 60}分{secs % 60}秒")
+        L += [f"昨日の訪問者　{ycount}人", ""]
         if src.get("rows"):
             L.append("どこから来たか")
             for n, v in listing(src):
                 label = {"(direct)": "直接アクセス（URLを直接開いた）",
-                         "google": "Google検索"}.get(n, n)
+                         "google": "Google検索",
+                         "bing": "Bing検索",
+                         "yahoo": "Yahoo!検索"}.get(n, n)
                 L.append(f"　{label}　{v}人")
             L.append("")
         if pages.get("rows"):
             L.append("よく見られたページ")
             for n, v in listing(pages, 3):
                 label = {"/dai2ryoiki/": "トップ",
+                         "/dai2ryoiki/index.html": "トップ",
                          "/dai2ryoiki/untei.html": "運営者情報",
                          "/dai2ryoiki/privacy.html": "プライバシーポリシー"}.get(n, n)
                 L.append(f"　{label}　{v}回")
