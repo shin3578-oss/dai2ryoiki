@@ -1,0 +1,26 @@
+# ==========================================================
+# 【何をする】第2領域のサイトの前日アクセスをGA4から取り、院長DMへ1通送る
+# 【いつ動く】毎朝（apotoolの朝の起動ハブから呼ばれる）＋手動実行
+# 【通知先】レポートBot 12786828（apotool の lw_notify.yml を呼び出す）
+# 【費用】このリポジトリは公開なのでActionsの実行時間は無料枠を消費しない
+# ==========================================================
+name: 第2領域 デイリーレポート
+
+on:
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: レポートを作って送る
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          NOTIFY_PAT: ${{ secrets.NOTIFY_PAT }}
+        run: python report.py
