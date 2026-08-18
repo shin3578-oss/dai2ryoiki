@@ -12,7 +12,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-PROPERTY = "550291203"          # Dai2Ryoiki Site
+PROPERTY = "550291203"          # Dai2Ryoiki Site（GA4）
+SC_SITE = "https://shin3578-oss.github.io/dai2ryoiki/"   # Search Consoleのプロパティ
 SITE = "https://shin3578-oss.github.io/dai2ryoiki/"
 JST = timezone(timedelta(hours=9))
 WD = "月火水木金土日"
@@ -35,6 +36,34 @@ def report(tok, body):
         data=json.dumps(body).encode(),
         headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
     return json.load(urllib.request.urlopen(r, timeout=60))
+
+
+def search_console(tok, days_back_from, days_back_to):
+    """Search Consoleの検索実績。データは2〜3日遅れるので少し前の期間を見る。
+    権限が無い・データが無い場合は None を返し、レポートからその節を落とす。"""
+    now = datetime.now(JST)
+    s_ = (now - timedelta(days=days_back_from)).strftime("%Y-%m-%d")
+    e_ = (now - timedelta(days=days_back_to)).strftime("%Y-%m-%d")
+    site = urllib.parse.quote(SC_SITE, safe="")
+    def q(body):
+        r = urllib.request.Request(
+            f"https://www.googleapis.com/webmasters/v3/sites/{site}/searchAnalytics/query",
+            data=json.dumps(body).encode(),
+            headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
+        return json.load(urllib.request.urlopen(r, timeout=60)).get("rows", [])
+    try:
+        total = q({"startDate": s_, "endDate": e_})
+        words = q({"startDate": s_, "endDate": e_, "dimensions": ["query"], "rowLimit": 5})
+    except Exception:
+        return None
+    if not total:
+        return {"impressions": 0, "clicks": 0, "position": 0, "words": [], "from": s_, "to": e_}
+    t = total[0]
+    return {"impressions": int(t["impressions"]), "clicks": int(t["clicks"]),
+            "position": t["position"],
+            "words": [(w["keys"][0], int(w["impressions"]), int(w["clicks"]), w["position"])
+                      for w in words],
+            "from": s_, "to": e_}
 
 
 def one(res, i=0):
@@ -114,6 +143,24 @@ def main():
                          "/dai2ryoiki/privacy.html": "プライバシーポリシー"}.get(n, n)
                 L.append(f"　{label}　{v}回")
             L.append("")
+    sc = search_console(tok, 9, 3)   # 3日前までの7日間（Search Consoleは2〜3日遅れる）
+    if sc is not None:
+        if L and L[-1] != "":
+            L.append("")
+        L += [f"── 検索での見え方（{sc['from'][5:].replace('-','/')}〜{sc['to'][5:].replace('-','/')}）"]
+        if sc["impressions"] == 0:
+            L.append("　検索結果にはまだ出ていません")
+        else:
+            L.append(f"　検索結果に出た回数　{sc['impressions']}回")
+            L.append(f"　そこから来た人　　　{sc['clicks']}人")
+            L.append(f"　平均の順位　　　　　{sc['position']:.1f}位")
+            if sc["words"]:
+                L.append("　拾えている言葉")
+                for w, imp, clk, pos in sc["words"]:
+                    L.append(f"　　{w}　{imp}回・{pos:.0f}位")
+
+    if L and L[-1] != "":
+        L.append("")
     L += [f"直近7日の訪問者　{one(week)}人", "",
           "問い合わせが入ったときは、別途メールが届きます。", SITE]
 
