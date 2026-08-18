@@ -9,6 +9,11 @@ name: 第2領域 デイリーレポート
 
 on:
   workflow_dispatch:
+    inputs:
+      no_notify:
+        description: "LINEワークスへ送らない（動作確認用。文面はログにだけ出る）"
+        type: boolean
+        default: false
 
 jobs:
   report:
@@ -24,4 +29,5 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           NOTIFY_PAT: ${{ secrets.NOTIFY_PAT }}
+          NO_NOTIFY: ${{ inputs.no_notify }}
         run: python report.py
