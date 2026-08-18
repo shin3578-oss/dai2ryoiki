@@ -902,6 +902,7 @@
             <textarea name="body" rows="4" placeholder="例：月末の自費の集計に毎月5時間かかっています。これは自動化できますか？"></textarea></label>
         </div>
         <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="from" id="src">
         <div class="send">
           <button class="btn btn-primary" type="submit">送信する <span class="arw">→</span></button>
           <p class="note">現役の院長が直接お答えします。<br>売り込みの電話はしません。</p>
@@ -1012,6 +1013,15 @@
     }
     addEventListener('scroll', sweep, {passive:true});
     addEventListener('resize', sweep, {passive:true});
+
+    // どの経路で来たかをフォームに乗せる（?utm_source=wise のように付けて配る）
+    try{
+      var q = new URLSearchParams(location.search);
+      var src = q.get('utm_source') || q.get('from') || '';
+      var ref = document.referrer || '';
+      var el = doc.getElementById('src');
+      if(el) el.value = src || (ref ? '参照元: ' + ref.slice(0, 80) : '直接');
+    }catch(err){}
   })();
 </script>
 
