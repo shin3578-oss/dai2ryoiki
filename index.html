@@ -937,6 +937,18 @@
     var doc = document;
     var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // 問い合わせの送信をGA4へ「contact_submit」として送る（キーイベントの材料）。
+    // フォームはGASへPOSTして画面が移るので、送信の直前に1回だけ撃つ。
+    // gtagが無い環境（Artifactのプレビュー等）では何もしない。
+    var cf = doc.querySelector('form.cf');
+    if (cf) {
+      cf.addEventListener('submit', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'contact_submit', { page_location: location.href });
+        }
+      });
+    }
+
     // これまで「かたまり」で出していた箱は、箱自体を出さない
     doc.querySelectorAll('.shots,.vs,.faq,.price,.grp,.figures').forEach(function(e){
       e.classList.remove('rise');
