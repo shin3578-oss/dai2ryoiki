@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""第2領域 デイリーレポート
+"""第2領域 ウィークリーレポート
 
-サイトのアクセス状況をGA4から取り、LINEワークスの院長DMへ1通送る。
-21:00に読む前提なので「今日」を主役にし、確定値の「昨日」を添える。
-月〜土の運転なので、月曜の「昨日」で日曜分も拾える（日曜が抜け落ちない）。
+サイトのアクセス状況をGA4から取り、LINEワークスの院長DMへ週1通送る。
+公開直後で訪問者0の日が続くため、毎晩の配信は2026-08-24に週1（月曜21時）へ落とした。
+記事や検索から人が来はじめたら、毎晩の配信に戻す。
 通知は apotool の lw_notify.yml を呼び出して行う（この置き場に鍵を持たない）。
 """
 import json
@@ -17,6 +17,7 @@ SC_SITE = "https://shin3578-oss.github.io/dai2ryoiki/"   # Search Consoleのプ�
 SITE = "https://shin3578-oss.github.io/dai2ryoiki/"
 JST = timezone(timedelta(hours=9))
 WD = "月火水木金土日"
+OPEN = "2026-08-18"          # 公開日（ここからの累計を出す）
 
 
 def token():
@@ -83,14 +84,16 @@ def main():
     tok = token()
     now = datetime.now(JST)
     today = now.strftime("%Y-%m-%d")
-    yday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
-    rng = [{"startDate": today, "endDate": today}]
+    s7 = (now - timedelta(days=6)).strftime("%Y-%m-%d")       # この1週間（今日を含む7日）
+    p_from = (now - timedelta(days=13)).strftime("%Y-%m-%d")  # その前の1週間
+    p_to = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    rng = [{"startDate": s7, "endDate": today}]
 
     total = report(tok, {"dateRanges": rng,
                          "metrics": [{"name": "activeUsers"},
                                      {"name": "screenPageViews"},
                                      {"name": "averageSessionDuration"}]})
-    before = report(tok, {"dateRanges": [{"startDate": yday, "endDate": yday}],
+    before = report(tok, {"dateRanges": [{"startDate": p_from, "endDate": p_to}],
                           "metrics": [{"name": "activeUsers"}]})
     src = report(tok, {"dateRanges": rng,
                        "dimensions": [{"name": "sessionSource"}],
@@ -100,7 +103,7 @@ def main():
                          "dimensions": [{"name": "pagePath"}],
                          "metrics": [{"name": "screenPageViews"}],
                          "orderBys": [{"metric": {"metricName": "screenPageViews"}, "desc": True}]})
-    week = report(tok, {"dateRanges": [{"startDate": "6daysAgo", "endDate": "today"}],
+    allt = report(tok, {"dateRanges": [{"startDate": OPEN, "endDate": today}],
                         "metrics": [{"name": "activeUsers"}]})
 
     users, views = one(total, 0), one(total, 1)
@@ -109,22 +112,21 @@ def main():
         secs = int(float(total["rows"][0]["metricValues"][2]["value"]))
     ycount = one(before)
     diff = users - ycount
-    arrow = "前日と同じ" if diff == 0 else (f"前日より{diff}人増" if diff > 0 else f"前日より{-diff}人減")
+    arrow = "前の週と同じ" if diff == 0 else (f"前の週より{diff}人増" if diff > 0 else f"前の週より{-diff}人減")
+    span = f"{s7[5:].replace('-', '/')}〜{today[5:].replace('-', '/')}"
 
-    L = [f"【第2領域 デイリーレポート】{now.month}月{now.day}日"
-         f"（{WD[now.weekday()]}）21時時点", ""]
-    if users == 0 and ycount == 0:
-        L += ["今日も昨日も、訪問者はいませんでした。", "",
-              "まだ検索から見つけてもらえる段階ではないので、想定どおりです。"]
-    elif users == 0:
-        L += ["今日の訪問者はいませんでした。", "",
-              f"昨日は {ycount}人 でした。"]
+    L = [f"【第2領域 ウィークリーレポート】{now.month}月{now.day}日"
+         f"（{WD[now.weekday()]}）21時", f"この1週間（{span}）", ""]
+    if users == 0:
+        L += ["訪問者はいませんでした。", "",
+              "まだ検索から見つけてもらえる段階ではないので、想定どおりです。",
+              "記事を出す・リンクをもらうまでは、この数字は動きません。"]
     else:
-        L += [f"今日の訪問者　{users}人（{arrow}）",
-              f"ページ表示　　{views}回"]
+        L += [f"訪問者　　　{users}人（{arrow}）",
+              f"ページ表示　{views}回"]
         if secs:
-            L.append(f"滞在時間　　　平均 {secs // 60}分{secs % 60}秒")
-        L += [f"昨日の訪問者　{ycount}人", ""]
+            L.append(f"滞在時間　　平均 {secs // 60}分{secs % 60}秒")
+        L.append("")
         if src.get("rows"):
             L.append("どこから来たか")
             for n, v in listing(src):
@@ -161,7 +163,7 @@ def main():
 
     if L and L[-1] != "":
         L.append("")
-    L += [f"直近7日の訪問者　{one(week)}人", "",
+    L += [f"公開してからの累計　{one(allt)}人", "",
           "問い合わせが入ったときは、別途メールが届きます。", SITE]
 
     msg = "\n".join(L)

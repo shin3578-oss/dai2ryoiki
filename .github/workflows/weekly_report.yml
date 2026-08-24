@@ -1,0 +1,35 @@
+# ==========================================================
+# 【何をする】第2領域のサイトのこの1週間のアクセスをGA4から取り、院長DMへ1通送る
+#           （直近7日＋前の週との比較＋検索での見え方＋公開からの累計）
+# 【いつ動く】月曜 21:00（apotoolの sync_consult.yml から連鎖dispatch・月曜だけ発火）＋手動実行
+# 【通知先】レポートBot 12786828（apotool の lw_notify.yml を呼び出す）
+# 【費用】このリポジトリは公開なのでActionsの実行時間は無料枠を消費しない
+# 【経緯】2026-08-18は毎晩の配信だったが、訪問者0が続き毎晩同じ文面になるため
+#         2026-08-24に週1へ変更。人が来はじめたら毎晩に戻す
+# ==========================================================
+name: 第2領域 ウィークリーレポート
+
+on:
+  workflow_dispatch:
+    inputs:
+      no_notify:
+        description: "LINEワークスへ送らない（動作確認用。文面はログにだけ出る）"
+        type: boolean
+        default: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: レポートを作って送る
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          NOTIFY_PAT: ${{ secrets.NOTIFY_PAT }}
+          NO_NOTIFY: ${{ inputs.no_notify }}
+        run: python report.py
