@@ -456,9 +456,11 @@
 
 <style>
   .yl{max-width:44em;margin-inline:auto;}
-  .yl-item{display:block;margin-top:1.6rem;padding:1.6rem 1.7rem;border:1px solid var(--line);
-           border-radius:14px;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
+  .yl-item{display:block;margin-top:1.6rem;border:1px solid var(--line);border-radius:14px;
+           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
   .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
+  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
+  .yl-body{padding:1.5rem 1.7rem 1.7rem;}
   .yl-date{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em;}
   .yl-title{margin-top:.5rem;font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.4rem);
             line-height:1.6;color:var(--ink);}
@@ -474,14 +476,20 @@
       <div class="yl">
         <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
         <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <div class="yl-date">2026年8月25日</div>
-          <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-          <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
+          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
+          <div class="yl-body">
+            <div class="yl-date">2026年8月25日</div>
+            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
+            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
+          </div>
         </a>
         <a class="yl-item" href="kiji-jihi-mishu.html">
-          <div class="yl-date">2026年8月24日</div>
-          <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-          <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
+          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
+          <div class="yl-body">
+            <div class="yl-date">2026年8月24日</div>
+            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
+            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
+          </div>
         </a>
       </div>
     </div>
