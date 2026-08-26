@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>レセプトの間違いは、外注の返事を待たずに見つけている｜第2領域</title>
+<meta name="description" content="外部の点検は正確でも、返ってくるまでに2日かかる。現役の歯科医院長が、請求データを自分で先に読むチェックを6つのルールで作り、見逃さない率98.6％まで測って運用に入れた話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-recept-check.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="レセプトの間違いは、外注の返事を待たずに見つけている｜第2領域">
+<meta property="og:description" content="外部の点検は正確でも、返ってくるまでに2日かかる。現役の歯科医院長が、請求データを自分で先に読むチェックを6つのルールで作り、見逃さない率98.6％まで測って運用に入れた話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-recept-check.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,71 +444,146 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:44em;margin-inline:auto;}
-  .yl-item{display:block;margin-top:1.6rem;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.5rem 1.7rem 1.7rem;}
-  .yl-date{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.5rem;font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.4rem);
-            line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.7rem;font-size:1rem;line-height:1.9;color:var(--ink-2);}
-  .yl-lead{margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
     <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">レセプトの間違いは、<span class="nw">外注の返事を</span><span class="nw">待たずに見つけている</span></h1>
+      <p class="art-meta">2026年8月26日　第2領域</p>
+      <img class="art-hero" src="img/thumb_03.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">毎月2日の朝9時。その月の請求データを機械が読んで、直したほうがいい箇所だけをこちらへ送ってきます。レセプトを人が最初から見直す作業は、もうしていません。</p>
+        <p>今回は、その仕組みを作るまでに考えたことと、いちばん苦労した1点について書きます。</p>
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">外の点検は正確です。ただ、2日遅い</a></li><li><a href="#midashi-2">ルールは6つしか作っていない</a></li><li><a href="#midashi-3">いちばん苦労したのは、加算が「探せない」こと</a></li><li><a href="#midashi-4">使う前に、自分の精度を測る</a></li><li><a href="#midashi-5">小さなまとめ</a></li></ol></nav><h2 id="midashi-1">外の点検は正確です。ただ、2日遅い</h2>
+        <p>うちは請求前のデータを、外部の点検に出しています。返ってくる指摘は正確で、そこに不満はありません。</p>
+        <p>困るのは、返ってくるまでに2日かかることのほうです。</p>
+        <p>その2日、こちらは何もできません。締め切りが近い月ほど、手を止めて待っている時間が重くなります。</p>
+        <p>だったら、返事を待つ前に自分たちで先に読んでおけばいい。<strong>外注をやめる話ではなく、外注が返ってくるまでの2日を埋める話です。</strong></p>
+
+        <hr>
+
+        <h2 id="midashi-2">ルールは6つしか作っていない</h2>
+        <p>機械に覚えさせたのは、この6つだけです。</p>
+        <ol>
+          <li>歯周の処置に必要なコメントが付いていない</li>
+          <li>訪問診療の点数が、届け出ている区分と違う</li>
+          <li>届け出ている加算が算定されていない</li>
+          <li>生活保護の交付番号が書かれていない</li>
+          <li>先月まで算定していた管理料が、今月だけ止まっている</li>
+          <li>公費の年齢区分が、学年とずれている</li>
+        </ol>
+
+        <h3>網羅しようとすると、いつまでも完成しない</h3>
+        <p>6つとも、<strong>実際にうちが指摘されたことがある種類</strong>です。起こりうる間違いを全部拾おうとすると、たぶん永久に作り終わりません。</p>
+        <p>過去に言われたことだけを覚えさせて、残りは外注に任せる。そう割り切ったので、2日で埋めたかった穴だけがふさがりました。</p>
+
+        <hr>
+
+        <h2 id="midashi-3">いちばん苦労したのは、加算が「探せない」こと</h2>
+        <p>請求データの中では、加算は独立した行になりません。本体の点数に足し込まれて、1行になります。</p>
+        <figure><img src="img/zu_03a.png" alt="350点の処置に120点の加算が付くと、470点という1行として記録される" width="1280" height="720" loading="lazy"></figure>
+        <p>350点の処置に120点の加算が付くと、<strong>470点という1つの数字</strong>として記録される。だから「加算の番号を探す」やり方では、いつまで探しても0件のままでした。</p>
+
+        <h3>裏返して考えたら、見つかった</h3>
+        <p>素点のまま残っている行 ＝ 加算が付いていない行。そう読み替えて「350点のままの行を探す」に切り替えたら、1か月で十数件出てきました。</p>
+        <p>届出は済ませてあるのに、算定していなかった分です。</p>
+        <blockquote>
+          <p>返戻を防ぐつもりで作った仕組みが、先に見つけたのは、取りこぼしのほうでした。</p>
+        </blockquote>
+
+        <hr>
+
+        <h2 id="midashi-4">使う前に、自分の精度を測る</h2>
+        <p>1か月分（約1,100件）で、外注の指摘結果と突き合わせました。</p>
+        <figure><img src="img/zu_03b.png" alt="見逃さない率98.6％、当たり率90.9％" width="1280" height="720" loading="lazy"></figure>
+
+        <h3>見逃すことより、間違いを言い続けるほうが怖い</h3>
+        <p>この2つを測らずに運用へ入れたら、たぶん1か月で使われなくなります。</p>
+        <p>この手の仕組みが信用を失うのは、間違いを見逃したときではありません。<strong>間違っていないものを「間違っている」と言い続けたとき</strong>です。</p>
+        <p>一度そうなると、当たっている指摘まで読み飛ばされます。だから、指摘を出しはじめる前に、まず自分の精度を出しました。</p>
+
+        <hr>
+
+        <h2 id="midashi-5">小さなまとめ</h2>
+        <ul>
+          <li>外注は正確でも、返事が来るまでの時間はこちらで埋められる</li>
+          <li>ルールは網羅しない。過去に言われたことだけでいい</li>
+          <li>データの見え方が思い込みと違うことがある（加算は1行に合算される）</li>
+          <li>精度を測ってから渡す。測っていない指摘は、いずれ読まれなくなる</li>
+        </ul>
+        <p>数字を測ってから渡すというのは、人に仕事を頼むときと同じことをしているだけです。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"レセプトの間違いは、外注の返事を待たずに見つけている",
+ "datePublished":"2026-08-26",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"外部の点検は正確でも、返ってくるまでに2日かかる。歯科医院の院長が、請求データを自分で先に読むチェックを6つのルールで作り、見逃さない率98.6％まで測ってから運用に入れた話。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
