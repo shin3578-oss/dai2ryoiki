@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>日報のコメントに、私は1分も使っていません｜第2領域</title>
+<meta name="description" content="スタッフ20人あまりの日報に、毎日AIがコメントを書いて承認まで済ませている。現役の歯科医院長が、褒める言葉を全部禁止にした理由と、黙って止まっていた不具合の話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-nippo-ai.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="日報のコメントに、私は1分も使っていません｜第2領域">
+<meta property="og:description" content="スタッフ20人あまりの日報に、毎日AIがコメントを書いて承認まで済ませている。現役の歯科医院長が、褒める言葉を全部禁止にした理由と、黙って止まっていた不具合の話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-nippo-ai.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,79 +444,168 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:44em;margin-inline:auto;}
-  .yl-item{display:block;margin-top:1.6rem;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.5rem 1.7rem 1.7rem;}
-  .yl-date{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.5rem;font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.4rem);
-            line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.7rem;font-size:1rem;line-height:1.9;color:var(--ink-2);}
-  .yl-lead{margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
     <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <a class="yl-item" href="kiji-nippo-ai.html">
-          <img class="yl-thumb" src="img/thumb_04.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月27日</div>
-            <div class="yl-title">日報のコメントに、私は1分も使っていません</div>
-            <p class="yl-desc">20人あまりの日報に毎日返事を書くのは、根性では続きません。AIに書かせるにあたって最初にやったのは、褒める言葉を全部禁止にすることでした。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">日報のコメントに、<span class="nw">私は1分も</span><span class="nw">使っていません</span></h1>
+      <p class="art-meta">2026年8月27日　第2領域</p>
+      <img class="art-hero" src="img/thumb_04.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">うちの日報には、毎回コメントが付きます。書いているのは、私ではありません。30分おきに機械が巡回して、まだ承認されていない日報を見つけ、コメントを書いて、承認まで済ませています。</p>
+        <p>私はその画面を、ふだん開いていません。今回は、そこに至るまでに考えたことと、いちばん苦労した1点について書きます。</p>
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">続かないのは、気持ちの問題ではありません</a></li><li><a href="#midashi-2">最初のAIは「素晴らしいですね」と書いてきた</a></li><li><a href="#midashi-3">書かせているのは、文章ではなく順番</a></li><li><a href="#midashi-4">いちばん苦労したのは、黙って止まっていたこと</a></li><li><a href="#midashi-5">名前の呼び方だけは、任せきれていません</a></li><li><a href="#midashi-6">読んでいないことを、どう考えているか</a></li><li><a href="#midashi-7">小さなまとめ</a></li></ol></nav><h2 id="midashi-1">続かないのは、気持ちの問題ではありません</h2>
+        <p>スタッフは20人あまり。全員が日報を出します。</p>
+        <p>1人に3行返すだけでも、毎晩1時間近くかかります。最初の2週間は書けます。3週目に1日飛んで、4週目には「まとめて明日」になります。</p>
+        <p>そして、まとめて書いたコメントは、だいたい同じ文になります。「ありがとう」「引き続きよろしく」。</p>
+        <p>書いているこちらは返した気でいますが、受け取る側から見れば返事は止まっています。<strong>続かない仕組みは、最初から無かったのとあまり変わりません。</strong></p>
+
+        <hr>
+
+        <h2 id="midashi-2">最初のAIは「素晴らしいですね」と書いてきた</h2>
+        <p>とりあえず書かせてみた最初のコメントは、こういうものでした。</p>
+        <blockquote>
+          <p>今日もよく頑張りましたね。<br>前回より丁寧に対応できていて、成長を感じます。<br>この調子でもっと意識していきましょう。</p>
+        </blockquote>
+        <p>読んだときに、これは要らないと思いました。</p>
+        <p>よくできたかどうかを決めているのはこちらで、成長したかどうかを判定しているのもこちら。<strong>返事の形をしていますが、中身は採点です。</strong></p>
+        <p>毎日採点され続けたら、日報は「点を取りにいく作文」になります。実際、そういう日報はすぐ短くなるか、当たりさわりのない文だけになります。</p>
+
+        <h3>使わない言葉を、先に決めた</h3>
+        <p>書かせたい言葉を並べるより、使わせない言葉を決めるほうが早い、と考えました。</p>
+        <p>評価する言葉、比較する言葉、命令する言葉を全部禁止にしました。「よくできました」も「もっと〜しましょう」も、こちらから見れば励ましですが、受け取る側には評価と指示です。</p>
+        <figure><img src="img/zu_04a.png" alt="使わせない言葉と、使う言葉の対比" loading="lazy" width="1280" height="720"></figure>
+        <p>残ったのは、感謝と、共感と、問いかけだけです。</p>
+
+        <hr>
+
+        <h2 id="midashi-3">書かせているのは、文章ではなく順番</h2>
+        <p>コメントの中身は毎回違っていい。ただ、通る順番は毎回同じにしています。</p>
+        <ol>
+          <li>その日の仕事と関わりへの感謝</li>
+          <li>日報に書かれていた具体的な行動への共感</li>
+          <li>「なぜそれをしたかったのか」という目的への問い</li>
+          <li>その人が本当に大切にしていることへの接続</li>
+          <li>その人の選択への信頼を伝えて締める</li>
+        </ol>
+        <p><strong>文章のうまさを頼むのではなく、通る場所を指定する。</strong>そうしたら、毎回ちがう文なのに、毎回同じ態度になりました。</p>
+
+        <h3>短い日報を、責めさせない</h3>
+        <p>一行しか書いていない日が誰にでもあります。そこで「もう少し詳しく書きましょう」と返すと、次からは分量だけが増えます。</p>
+        <p>なので、短い日は「今日はどんな気持ちで過ごしていましたか」と聞くだけにしています。長い日は、全部に触れずに、気になった一つだけを深掘りします。</p>
+
+        <hr>
+
+        <h2 id="midashi-4">いちばん苦労したのは、黙って止まっていたこと</h2>
+        <p>しばらく経ったころ、日報にコメントが付かなくなりました。</p>
+        <p>エラーは一通も来ていません。実行のログも、すべて「成功」と記録されていました。</p>
+        <p>原因は、承認ボタンの文言が変わっていたことでした。機械はボタンを探して、見つからず、その1件を飛ばして、次へ進み、最後に「0件処理しました。完了」と書いて終わっていた。</p>
+        <figure><img src="img/zu_04b.png" alt="0件でも記録は成功になる" loading="lazy" width="1280" height="720"></figure>
+        <p>処理したものが0件でも、途中で落ちていなければ「成功」です。<strong>エラーが出ないことと、仕事が済んでいることは別でした。</strong></p>
+
+        <h3>「見つからなかった」を、成功に数えない</h3>
+        <p>直したのは、探し方ではありません。終わり方のほうです。</p>
+        <p>飛ばした件数を数えて、1件でもあればその実行を失敗として扱う。そうしておけば、次に画面が変わった日には、その場で通知が来ます。</p>
+        <p>止まったことに気づけない仕組みは、動いていないのと同じでした。</p>
+
+        <hr>
+
+        <h2 id="midashi-5">名前の呼び方だけは、任せきれていません</h2>
+        <p>うちには1人だけ、名字ではなく愛称で呼んでいるスタッフがいます。</p>
+        <p>そこだけは、何度指示してもAIが丁寧に直してしまいます。「〜さん」を付けるほうが自然だと判断するからです。</p>
+        <p>結局、書き終わったコメントの文字を最後に置き換える、という素朴なやり方に落ち着きました。</p>
+        <p>ここは笑い話のようですが、大事だと思っています。<strong>内容が良くても、呼び方がいつもと違えば、それは本人には別人からの返事です。</strong></p>
+
+        <hr>
+
+        <h2 id="midashi-6">読んでいないことを、どう考えているか</h2>
+        <p>コメントを機械に書かせているだけでなく、私は日報そのものを読んでいません。冷たいのではないか、と自分でも思いました。</p>
+        <p>ただ、毎晩1時間かけて読んで、3週間で途切れて、そのあと1か月返事が来ない。受け取る側にとって冷たいのは、おそらくそちらです。</p>
+        <p><strong>読むことを続けるより、返事が毎日届き続けることを選びました。</strong>そのうえで、返事の中身から評価と命令を抜いた。抜いたぶんだけ、私の機嫌が混ざらなくなりました。</p>
+
+        <hr>
+
+        <h2 id="midashi-7">小さなまとめ</h2>
+        <ul>
+          <li>毎日20人分に返すのは、根性では続かない</li>
+          <li>褒める文は、受け取る側からは採点に見える</li>
+          <li>文章のうまさではなく、通る順番を決める</li>
+          <li>エラーが出ていないことは、仕事が済んだ証拠にならない</li>
+          <li>呼び方を間違えると、内容が良くても別人からの返事になる</li>
+        </ul>
+        <p>日報に返事を書くのをやめたわけではありません。自分が続けられない方法をやめただけです。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"日報のコメントに、私は1分も使っていません",
+ "datePublished":"2026-08-27",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"スタッフ20人あまりの日報に、毎日AIがコメントを書いて承認まで済ませている。歯科医院の院長が、褒める言葉を全部禁止にした理由と、黙って止まっていた不具合の話。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
