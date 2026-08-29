@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>材料の請求書は、合っている前提で払っていました｜第2領域</title>
+<meta name="description" content="材料の請求書と紙の納品書は、誰も突き合わせていなかった。現役の歯科医院長が、月末に全明細を1行ずつ自動で消し込む仕組みを作り、44行中1件・3,000円の差異を見つけた話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-nouhin-matching.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="材料の請求書は、合っている前提で払っていました｜第2領域">
+<meta property="og:description" content="材料の請求書と紙の納品書は、誰も突き合わせていなかった。現役の歯科医院長が、月末に全明細を1行ずつ自動で消し込む仕組みを作り、44行中1件・3,000円の差異を見つけた話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-nouhin-matching.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,87 +444,175 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:44em;margin-inline:auto;}
-  .yl-item{display:block;margin-top:1.6rem;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.5rem 1.7rem 1.7rem;}
-  .yl-date{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.5rem;font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.4rem);
-            line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.7rem;font-size:1rem;line-height:1.9;color:var(--ink-2);}
-  .yl-lead{margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
     <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <a class="yl-item" href="kiji-nouhin-matching.html">
-          <img class="yl-thumb" src="img/thumb_05.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月29日</div>
-            <div class="yl-title">材料の請求書は、合っている前提で払っていました</div>
-            <p class="yl-desc">請求書と紙の納品書は、置いてある場所も届く形も違います。だから誰も突き合わせていませんでした。月末に全明細を1行ずつ自動で消し込むようにして、44行のうち1件・3,000円の差異が残った話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nippo-ai.html">
-          <img class="yl-thumb" src="img/thumb_04.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月27日</div>
-            <div class="yl-title">日報のコメントに、私は1分も使っていません</div>
-            <p class="yl-desc">20人あまりの日報に毎日返事を書くのは、根性では続きません。AIに書かせるにあたって最初にやったのは、褒める言葉を全部禁止にすることでした。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">材料の請求書は、<span class="nw">合っている前提で</span><span class="nw">払っていました</span></h1>
+      <p class="art-meta">2026年8月29日　第2領域</p>
+      <img class="art-hero" src="img/thumb_05.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">毎月、材料屋さんから請求書が届きます。金額を見て、支払います。</p>
+        <p>中身を1行ずつ確かめたことは、一度もありませんでした。確かめようとすれば、受付に積まれた紙の納品書と、数百行を突き合わせることになります。</p>
+        <p>今は、それを月末に機械がやっています。いちばん新しい回の結果は、44行が一致、指摘は1件、3,000円でした。</p>
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">間違っていないのではなく、確かめていなかった</a></li><li><a href="#midashi-2">やらせたのは、読むことと、消し込むこと</a></li><li><a href="#midashi-3">いちばん怖かったのは、差異が出ないことでした</a></li><li><a href="#midashi-4">実在しない間違いを、27件つくった日</a></li><li><a href="#midashi-5">送る差異と、送らない差異を先に決めた</a></li><li><a href="#midashi-6">催促が効いて、LINEで返ってきた</a></li><li><a href="#midashi-7">いちばん新しい回の結果</a></li><li><a href="#midashi-8">小さなまとめ</a></li></ol></nav><h2 id="midashi-1">間違っていないのではなく、確かめていなかった</h2>
+        <p>材料の請求は、月にまとめて届きます。納品書は、届いたその日に紙で置いていかれます。</p>
+        <p>この2つは、置かれている場所も、届くタイミングも、形も違います。片方はメールのPDF、片方は受付に積まれた束です。</p>
+        <p>だから誰も突き合わせません。サボっているわけではなく、突き合わせるための時間がどこにも無いだけです。</p>
+        <p><strong>確かめていないことは、合っていることとは違います。</strong>うちは長いあいだ、その2つを同じものとして扱っていました。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-2">やらせたのは、読むことと、消し込むこと</h2>
+        <p>納品書はスキャンしてクラウドへ入れてもらいます。請求書はメールに添付されて届きます。</p>
+        <p>どちらも画像なので、まずAIに文字を読ませます。拾うのは、伝票番号・日付・商品コード・商品名・数量・単価・金額の7つだけです。</p>
+        <p>読めたら、あとは<strong>1行ずつ消し込む</strong>だけです。納品書の1行と請求書の1行がぴたりと合ったら、両方を消す。最後に消えずに残った行が、差異です。</p>
+
+        <h3>「伝票ごとにまとめて比べる」で失敗した</h3>
+        <p>最初は、伝票番号ごとに合計を出して比べるつもりでした。そのほうが行数が減って速いからです。</p>
+        <p>ところが、同じ品物を4本納品した日の書き方が、両者で違いました。</p>
+        <blockquote><p>納品書：33,000円の行が4本ならんでいる<br>請求書：数量4・132,000円の行が1本だけ</p></blockquote>
+        <p>1行ずつ比べると、1行だけが「金額が違う」ことになり、残りの3行は「納品書にしか無い」に化けます。実際には、1円もずれていないのにです。</p>
+        <p>同じ伝票・同じ単価の行は、先にまとめてから比べる。こういう「書き方の癖」を吸収する処理が、全体のかなりの部分を占めました。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-3">いちばん怖かったのは、差異が出ないことでした</h2>
+        <p>AIの読み取りは完璧ではありません。行をまるごと1本、読み落とすことがあります。</p>
+        <p>問題は、そのときに何が起きるかです。</p>
+        <figure><img src="img/zu_05a.png" alt="読み落としても画面は「差異なし」になる仕組みの図" loading="lazy" width="1280" height="720"></figure>
+        <p>請求書の行が落ちると、対応する納品書の行が余ります。それは「納品書にしか無い行」として出ますが、これはこちらが払いすぎる話ではないので、指摘しません。</p>
+        <p>つまり、<strong>読み落としても、画面には「差異なし」と出ます。</strong>止まりもせず、エラーも出ず、静かに何も見つけない。</p>
+        <p>これが、この仕組みのいちばん悪い壊れ方でした。</p>
+
+        <h3>だから、合計を毎回照合する</h3>
+        <p>請求書には、明細の下に合計金額が印字されています。読み取った明細を足した数字と、その印字が1円まで合うかを毎回見ます。</p>
+        <p>合わなければ、突合の結果は出しません。1行落ちていれば、合計は必ずずれるからです。</p>
+        <p>直近の回では、5通の請求書すべてで合計が1円単位まで一致しました。この数字が合っていることが、「差異なし」を信じてよい根拠になります。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-4">実在しない間違いを、27件つくった日</h2>
+        <p>スキャンした納品書を開いたら、画像が横倒しになっていました。それを見て、「読ませる前に90度回す」と決めてしまいました。</p>
+        <p>ところが、実際にはソフト側が既に向きを直していました。そこへ余計に回したので、正しい向きだった請求書のほうが崩れ、表の列が1つずれました。</p>
+        <p>出てきたのは、<strong>実在しない「金額違い」27件</strong>です。しかも、列が1つずれても、1行の中では数量×単価＝金額の辻褄が合ってしまいます。合計の照合をすり抜けたので、結果だけ見ても気づけませんでした。</p>
+        <p>直したのは、回す角度ではありません。毎回ページの形を見て、そのつど向きを決めるようにしました。</p>
+        <p><strong>1回見ただけの事実を、いつもそうだと決めつけない。</strong>自動化でいちばん高くつく間違いは、たいていこの形をしています。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-5">送る差異と、送らない差異を先に決めた</h2>
+        <p>出てくる差異は、3種類しかありません。</p>
+        <ol><li>金額が違う</li><li>請求にあるのに、納品書が無い</li><li>納品書はあるのに、請求に無い</li></ol>
+        <p>先方に連絡するのは、1と2だけです。</p>
+        <p>3は連絡しません。こちらが損をしている話ではありませんし、送れば「請求してください」と言っているのと同じになります。</p>
+        <p>歯止めも先に決めました。</p>
+        <ul><li>納品書のスキャンが上がっていない月は、送らない（全部が差異に見えるだけなので）</li><li>差異が3割を超えた社には、送らない（先方ではなく、読み取りを疑う）</li><li>どちらも、送らない理由を私だけに知らせる</li></ul>
+        <p>文面も、断定しない書き方にしています。「間違っています」ではなく「確認できませんでした」。担当者の名前は書きません。</p>
+        <p><strong>相手を疑う道具にしないために、送らない条件のほうを先に書きました。</strong></p>
+
+        <hr>
+
+
+        <h2 id="midashi-6">催促が効いて、LINEで返ってきた</h2>
+        <p>請求書が届かないと、そもそも突合ができません。なので、締め切りの前日の朝に、まだ届いていない社へ催促のメールが自動で出ます。</p>
+        <p>今月、それが初めて飛びました。返事は、その日のうちに来ました。ただし<strong>LINEで、画像で</strong>です。</p>
+        <p>こちらが用意していた受け口は、メールの添付とスキャンの2つだけでした。想定外です。</p>
+        <p>ただ、先方に「メールで送り直してください」と言うのは筋が違います。決められた形で出してもらうより、こちらが受け取れる形を増やすほうが早い。</p>
+        <p>手で入れておけば拾えるフォルダを1つ足して、それで終わりにしました。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-7">いちばん新しい回の結果</h2>
+        <figure><img src="img/zu_05b.png" alt="いちばん新しい回の突合結果（一致44・金額違い0・納品書のみ0・請求のみ1）" loading="lazy" width="1280" height="720"></figure>
+        <p>44行が一致。金額違いはゼロ。残ったのは、請求にあるのに納品書が見つからない1件だけでした。</p>
+        <p>機械の言い分を鵜呑みにせず、納品書10ページ・20伝票を自分で開いて確かめました。同じ日の他の伝票はすべて納品書にあり、その1件だけがありません。スキャン漏れでも読み落としでもない、と判断して、確認のメールを送りました。</p>
+        <p>金額は3,000円です。試しに前の月で回したときは、消毒液の単価が40円だけ違う行が1件出ました。</p>
+        <p>40円のために、毎月数百行を人が見るのは無理です。<strong>金額が小さいから見ないのではなく、見る手段が無いから見ていなかった。</strong>その手段のほうを、先に用意した話でした。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-8">小さなまとめ</h2>
+        <ul><li>確かめていないことは、合っていることではない</li><li>差異が出ないことは、正しい証拠にならない。合計で毎回検算する</li><li>1回見ただけの事実を、いつもそうだと決めつけない</li><li>送らない差異を、先に決めておく</li><li>相手の出し方を変えるより、こちらの受け口を増やすほうが早い</li></ul>
+        <p>見つかったのは、月に3,000円です。ただ、来月も再来月も同じ精度で見てくれる、という状態のほうを買ったつもりでいます。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"材料の請求書は、合っている前提で払っていました",
+ "datePublished":"2026-08-29",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"材料の請求書と紙の納品書は、誰も突き合わせていなかった。現役の歯科医院長が、月末に全明細を1行ずつ自動で消し込む仕組みを作り、44行中1件・3,000円の差異を見つけた話。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
