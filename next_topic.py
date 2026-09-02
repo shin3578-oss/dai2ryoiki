@@ -48,7 +48,7 @@ def done(slug):
 def message():
     d = load()
     now = datetime.now(JST)
-    head = f"【第2領域ブログ】今週の1本\n{now.month}月{now.day}日（{WD[now.weekday()]}）21時\n"
+    head = f"【第2領域ブログ】今週の1本\n{now.month}月{now.day}日（{WD[now.weekday()]}）{now.hour}時\n"
 
     last = max((p["posted"] for p in d["published"] if p.get("posted")), default="")
     gap = ""
