@@ -26,16 +26,14 @@
       "slug": "kiji-nouhin-matching",
       "title": "材料の請求書は、合っている前提で払っていました",
       "posted": "2026-08-29"
+    },
+    {
+      "slug": "kiji-sotsugyou-kengen",
+      "title": "卒業したスタッフの権限を、辞めてから数えはじめた",
+      "posted": "2026-09-14"
     }
   ],
   "queue": [
-    {
-      "slug": "kiji-sotsugyou-kengen",
-      "menu": "57",
-      "title": "卒業したスタッフの権限を、辞めてから数えはじめた",
-      "angle": "退職が決まってから数えたら共有77件。しかも本人所有48件は在職中でないとオーナー移管を頼めない。「最終出勤日に止める」では間に合わないという構造の話。個人が特定される書き方はしない。",
-      "posted": ""
-    },
     {
       "slug": "kiji-santei-more",
       "menu": "51",
