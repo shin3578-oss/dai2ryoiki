@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>卒業したスタッフの権限を、辞めてから数えはじめた｜第2領域</title>
+<meta name="description" content="退職が決まってから共有ファイルを数えたら77件あった。現役の歯科医院長が、共有を外すだけでは医院に残らない48件の存在と、スタッフ名簿の停止を引き金に院内資料の合言葉を自動で入れ替える仕組みを作った話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-sotsugyou-kengen.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="卒業したスタッフの権限を、辞めてから数えはじめた｜第2領域">
+<meta property="og:description" content="退職が決まってから共有ファイルを数えたら77件あった。現役の歯科医院長が、共有を外すだけでは医院に残らない48件の存在と、スタッフ名簿の停止を引き金に院内資料の合言葉を自動で入れ替える仕組みを作った話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-sotsugyou-kengen.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,95 +444,195 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:44em;margin-inline:auto;}
-  .yl-item{display:block;margin-top:1.6rem;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.5rem 1.7rem 1.7rem;}
-  .yl-date{font-size:.85rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.5rem;font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.4rem);
-            line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.7rem;font-size:1rem;line-height:1.9;color:var(--ink-2);}
-  .yl-lead{margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
     <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <a class="yl-item" href="kiji-sotsugyou-kengen.html">
-          <img class="yl-thumb" src="img/thumb_06.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月14日</div>
-            <div class="yl-title">卒業したスタッフの権限を、辞めてから数えはじめた</div>
-            <p class="yl-desc">退職が決まってから数えたら、共有しているファイルが77件ありました。そのうち48件は、共有を外すだけでは医院に残りません。持ち主を移す作業は在職中にしか頼めない、という構造の話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nouhin-matching.html">
-          <img class="yl-thumb" src="img/thumb_05.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月29日</div>
-            <div class="yl-title">材料の請求書は、合っている前提で払っていました</div>
-            <p class="yl-desc">請求書と紙の納品書は、置いてある場所も届く形も違います。だから誰も突き合わせていませんでした。月末に全明細を1行ずつ自動で消し込むようにして、44行のうち1件・3,000円の差異が残った話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nippo-ai.html">
-          <img class="yl-thumb" src="img/thumb_04.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月27日</div>
-            <div class="yl-title">日報のコメントに、私は1分も使っていません</div>
-            <p class="yl-desc">20人あまりの日報に毎日返事を書くのは、根性では続きません。AIに書かせるにあたって最初にやったのは、褒める言葉を全部禁止にすることでした。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">卒業したスタッフの権限を、<span class="nw">辞めてから</span><span class="nw">数えはじめた</span></h1>
+      <p class="art-meta">2026年9月14日　第2領域</p>
+      <img class="art-hero" src="img/thumb_06.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">今年の夏、事務のスタッフが1人、卒業しました。退職が決まってから、その人と共有しているファイルを数えました。</p>
+        <p>77件ありました。そのうち48件は、辞めたあとでは医院に取り戻せない種類のものでした。</p>
+        <p>最終出勤日にアカウントを止めれば済む、と思っていました。そうではありませんでした。</p>
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">「共有を外す」と「持ち主を移す」は別の作業だった</a></li><li><a href="#midashi-2">数えるまで、何件あるのか誰も知らなかった</a></li><li><a href="#midashi-3">本人の作業もれに見えたものは、作業もれではなかった</a></li><li><a href="#midashi-4">持ち主を移しても、置き場所は動かない</a></li><li><a href="#midashi-5">いちばん抜けていたのは、共通のアカウントでした</a></li><li><a href="#midashi-6">合言葉は、変えない限り永久に使える</a></li><li><a href="#midashi-7">止められないものは、止められないと書いておく</a></li><li><a href="#midashi-8">終わったと言えたのは、数えた結果が0だったから</a></li><li><a href="#midashi-9">小さなまとめ</a></li></ol></nav><h2 id="midashi-1">「共有を外す」と「持ち主を移す」は別の作業だった</h2>
+        <p>クラウドに置いたファイルには、持ち主がいます。作った人が、そのまま持ち主になります。</p>
+        <p>本人が作った表やフォームは、本人のものです。こちらは共有してもらって見ているだけ、という状態でした。</p>
+        <p>この状態で本人のアカウントを止めると、こちらが開けなくなります。止める作業が、そのままこちらの損になります。</p>
+        <p><strong>共有を外す作業と、持ち主を移す作業は、別のものです。</strong>そして持ち主を移す操作は、本人にしか押せません。</p>
+        <p>つまり、在職中でなければ頼めない。退職の話が出た日が、この作業の締め切りでした。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-2">数えるまで、何件あるのか誰も知らなかった</h2>
+        <figure><img src="img/zu_06a.png" alt="退職が決まってから数えた77件の内訳（本人48・私19・医院の共通6・外の業者4）" loading="lazy" width="1280" height="720"></figure>
+        <p>77件の内訳は、本人が持ち主のものが48件、私が持ち主のものが19件、医院の共通アカウントが6件、外の業者が4件でした。共有を外すだけで済むのは、下の29件です。</p>
+        <p>この数は、誰かが管理していたものではありません。退職が決まってから、初めて数えました。</p>
+
+        <h3>自分の目から見える範囲だけでは足りなかった</h3>
+        <p>最初は私のアカウントから一覧を取りました。次に、医院の共通アカウントからも同じように取りました。</p>
+        <p>後者からしか見えないものが9件ありました。患者さんが使う予約変更フォームも、その中にありました。</p>
+        <p><strong>片方の視点からしか数えていない一覧は、全部ではありません。</strong>以後、この作業はずっと2つの視点で数えています。</p>
+
+        <h3>対象を固定リストで持たない</h3>
+        <p>毎朝1回、残りが何件あるかを数え直す仕組みにしました。「この48件を消していく」という台帳を作らなかった、ということです。</p>
+        <p>台帳にすると、途中で増えたものを取りこぼします。実際、あとから61件が出てきました。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-3">本人の作業もれに見えたものは、作業もれではなかった</h2>
+        <p>移管が進んでいるか、本人のチェック表と実際の状態を毎朝つき合わせていました。ある朝、4件だけ食い違いました。</p>
+        <p>本人は「済」にしている。こちらの数え方では、まだ本人のものになっている。</p>
+        <p>原因は、フォルダと中身が別々に扱われることでした。</p>
+        <blockquote><p>中身のファイルを全部こちらへ移しても、入れ物のフォルダは本人のまま残る</p></blockquote>
+        <p>名前だけで突き合わせていたので、これが「やっていない」に見えていました。4件のうち3件がこれで、本当に残っていたのは1件だけです。</p>
+        <p><strong>人の作業もれに見えるものは、まず仕組みの都合を疑う。</strong>疑う方向を間違えると、催促の連絡がそのまま相手を傷つけます。</p>
+
+        <h3>そして、チェック表に載っていない61件が出てきた</h3>
+        <p>8月の後半に、残りが67件あることがわかりました。チェック表の残り6件に対して、61件多い。</p>
+        <p>61件は全部、雇用契約書まわりのファイルでした。置かれていたのは、私のドライブの中です。</p>
+        <p>入れ物は私のもの、中身は本人のもの。さきほどと同じズレが、逆向きに起きていました。</p>
+        <p>本人のチェック表に無いので、本人は「あと6件」のつもりでいます。毎朝数え直していなければ、そのまま最終出勤日を迎えていました。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-4">持ち主を移しても、置き場所は動かない</h2>
+        <p>移管を受けたファイルが、24件たまりました。そのうち、私のドライブに入っていたものは1件もありませんでした。</p>
+        <p>持ち主は変わっても、ファイルは本人のフォルダの中に置かれたままです。本人がそのフォルダを消せば、こちらからは事実上見つけられなくなります。</p>
+        <p>なので、移管を受けたらその場で1つのフォルダへ引き取るようにしました。承諾も、引き取りも、機械が毎朝やります。</p>
+        <p>ただし、外の会社のフォルダの中にあるものは動かしません。社労士さんが職員ごとに整理している中から抜くと、先方の整理が壊れるからです。</p>
+        <p><strong>権限の話をしているつもりで、置き場所の話を見落としていました。</strong></p>
+
+        <hr>
+
+
+        <h2 id="midashi-5">いちばん抜けていたのは、共通のアカウントでした</h2>
+        <p>うちのスタッフは全員、院内のパソコンで医院の共通アカウントにログインして作業していました。つまり、個人の共有をどれだけ外しても、そこは閉まりません。</p>
+        <p>個人に配った権限を1件ずつ数えている横で、全員が同じ鍵で入れる扉が開いたままでした。ここはパスワードを変えるしか手がありません。</p>
+        <p><strong>配った覚えのない権限ほど、棚卸しから抜け落ちます。</strong>誰に渡したかを思い出す数え方では、共通のものは出てきません。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-6">合言葉は、変えない限り永久に使える</h2>
+        <p>院内の手順は動画にして、一覧のページにまとめてあります。開くときは合言葉を1つ入れるだけです。</p>
+        <p>この合言葉は、一度入れると端末に保存されます。辞めても消えません。</p>
+        <p>入り口を1人ずつにする作り方も検討しました。無料でできる方法もありましたが、全員にアカウントを持たせる運用が増えるので、今の人数では見送りました。</p>
+        <p>代わりに、退職者が出るたびに合言葉を入れ替えることにしました。</p>
+
+        <h3>やり方ではなく、忘れることで失敗する</h3>
+        <p>合言葉を変える作業自体は、5分で終わります。難しいのは、退職の処理が続く中でそれを思い出すことです。</p>
+        <p>そこで、引き金を別の作業にしました。退職のとき必ずやること、つまりスタッフ名簿を「停止」にすることです。</p>
+        <figure><img src="img/zu_06b.png" alt="スタッフ名簿を停止にすると、翌朝5時半に合言葉が入れ替わる流れの図" loading="lazy" width="1280" height="720"></figure>
+        <p>毎朝5時半に名簿を読み、前日と比べて在籍から停止に変わった人がいれば、その朝のうちに合言葉が入れ替わります。私がやるのは、名簿を止めることだけです。</p>
+        <p>新しい合言葉は、全体のチャットには流しません。辞めた人がまだチャットに残っている可能性があるからです。</p>
+        <p>正本は名簿の側のメモ欄に書きます。そこは、停止された人には見えない場所です。</p>
+
+        <h3>暴発しない工夫と、戻す工夫</h3>
+        <p>自動で合言葉を変える仕組みは、間違って動くと全員が締め出されます。なので、動かない条件を先に決めました。</p>
+        <ul><li>名簿が0人で返ってきたら、中断する（読めていないだけの可能性が高い）</li><li>名簿を2回読んで食い違ったら、中断する</li><li>3人以上がまとめて停止になっていたら、入れ替えずに私へ警告だけ出す</li></ul>
+        <p>そして、入れ替える前に「今の合言葉で本当に開くか」を確かめ、入れ替えたあとに開けなければ元へ戻します。一覧のページは3つあり、同じ場所に合言葉を保存しています。1つだけ新しくなると、行き来するたびに永久に合言葉を聞かれる状態になります。</p>
+        <p><strong>自動で締め出す仕組みには、自動で戻る道を先につけておく。</strong></p>
+
+        <hr>
+
+
+        <h2 id="midashi-7">止められないものは、止められないと書いておく</h2>
+        <p>動画そのものは、URLを知っていれば見られる形で置いてあります。合言葉を変えても、すでに控えられた動画のURLは止まりません。</p>
+        <p>防げるのは、一覧をまるごと持ち出されることだけです。ここまで塞ぐには有料の仕組みが要るので、今は契約していません。</p>
+        <p>これは手順書の中に、そのまま書いてあります。<strong>できないことを書かずにおくと、次に読む人が「対策済み」と読み違えます。</strong></p>
+
+        <hr>
+
+
+        <h2 id="midashi-8">終わったと言えたのは、数えた結果が0だったから</h2>
+        <p>9月のはじめに、もう一度全部を数えました。本人が持ち主のままのファイルは0件、本人に共有が残っているファイルも0件。2つの視点の両方で、そうなっていました。</p>
+        <p>8月20日の時点では、共有を外す対象が74件ありました。9月に入って数えたら1件です。</p>
+        <p>こちらは何も消していないので、本人が自分で整理したのだと思います。理由は特定できていません。</p>
+        <p><strong>作業をやったから終わったのではなく、数えて0だったから終わりです。</strong>この2つは、途中まで同じ顔をしています。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-9">小さなまとめ</h2>
+        <ul><li>共有を外すことと、持ち主を移すことは別。移管は在職中にしか頼めない</li><li>退職が決まった日が、権限を数える締め切りになる</li><li>対象を固定リストで持たず、毎回数え直す。途中で増える</li><li>人の作業もれに見えるものは、まず仕組みの都合を疑う</li><li>配った覚えのない共通の入り口が、いちばん抜ける</li><li>忘れて失敗する作業は、忘れない別の作業にひもづける</li><li>止められないものは、止められないと書いて残す</li></ul>
+        <p>今回わかったのは、77件という数ではありませんでした。数え方のほうです。</p>
+        <p>次に誰かが卒業すると決まった日に、また同じ数え方で数えます。そのときは、初日から件数がわかります。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"卒業したスタッフの権限を、辞めてから数えはじめた",
+ "datePublished":"2026-09-14",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"退職が決まってから共有ファイルを数えたら77件あった。現役の歯科医院長が、共有を外すだけでは医院に残らない48件の存在と、スタッフ名簿の停止を引き金に院内資料の合言葉を自動で入れ替える仕組みを作った話。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
