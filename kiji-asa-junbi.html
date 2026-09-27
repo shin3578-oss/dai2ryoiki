@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>朝礼の前に、今日の段取りはもう配られている｜第2領域</title>
+<meta name="description" content="朝9時、診療前のチャットに今日の仕事と担当が届く。現役の歯科医院長が、自分あての朝のまとめは空振りに終わり、宛先を「みんな」に変えたら続いた話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-asa-junbi.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="朝礼の前に、今日の段取りはもう配られている｜第2領域">
+<meta property="og:description" content="朝9時、診療前のチャットに今日の仕事と担当が届く。現役の歯科医院長が、自分あての朝のまとめは空振りに終わり、宛先を「みんな」に変えたら続いた話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-asa-junbi.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,116 +444,140 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:none;}
-  .yl-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;}
-  @media (max-width:960px){.yl-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  @media (max-width:600px){.yl-grid{grid-template-columns:1fr;}}
-  .yl-item{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.1rem 1.2rem 1.3rem;}
-  .yl-date{font-size:.8rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.4rem;font-family:var(--serif);font-size:1.08rem;line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.6rem;font-size:.88rem;line-height:1.8;color:var(--ink-2);
-           display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
-  .yl-lead{max-width:44em;margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
-    <div class="wrap">
+    <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <div class="yl-grid">
-        <a class="yl-item" href="kiji-asa-junbi.html">
-          <img class="yl-thumb" src="img/thumb_08.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月28日</div>
-            <div class="yl-title">朝礼の前に、今日の段取りはもう配られている</div>
-            <p class="yl-desc">自分のために作った朝のまとめは、読んでも何も決まらなかった。宛先を「みんな」に変えたら、仕組みは続いた。終わった仕事ほど数えられない壁と、「成功」と表示されたまま何も届いていなかった一週間の話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-shuichi-kaigi.html">
-          <img class="yl-thumb" src="img/thumb_07.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月21日</div>
-            <div class="yl-title">毎朝リストを出すより、週1回の会議で話すほうが効いた</div>
-            <p class="yl-desc">8月7日から毎朝リストを出す仕組みを動かして、20日で止まりました。代わりに話したのは、もともと毎週やっているドクターのミーティングと新患カンファレンス。そのあと外部の点検の指摘がどう変わったかと、自分のチェックの数字が98.6%から21%に下がった理由。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-sotsugyou-kengen.html">
-          <img class="yl-thumb" src="img/thumb_06.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月14日</div>
-            <div class="yl-title">卒業したスタッフの権限を、辞めてから数えはじめた</div>
-            <p class="yl-desc">退職が決まってから数えたら、共有しているファイルが77件ありました。そのうち48件は、共有を外すだけでは医院に残りません。持ち主を移す作業は在職中にしか頼めない、という構造の話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nouhin-matching.html">
-          <img class="yl-thumb" src="img/thumb_05.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月29日</div>
-            <div class="yl-title">材料の請求書は、合っている前提で払っていました</div>
-            <p class="yl-desc">請求書と紙の納品書は、置いてある場所も届く形も違います。だから誰も突き合わせていませんでした。月末に全明細を1行ずつ自動で消し込むようにして、44行のうち1件・3,000円の差異が残った話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nippo-ai.html">
-          <img class="yl-thumb" src="img/thumb_04.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月27日</div>
-            <div class="yl-title">日報のコメントに、私は1分も使っていません</div>
-            <p class="yl-desc">20人あまりの日報に毎日返事を書くのは、根性では続きません。AIに書かせるにあたって最初にやったのは、褒める言葉を全部禁止にすることでした。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">朝礼の前に、<span class="nw">今日の段取りは</span><span class="nw">もう配られている</span></h1>
+      <p class="art-meta">2026年9月28日　第2領域</p>
+      <img class="art-hero" src="img/thumb_08.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">朝9時。診療が始まる30分前の医院は、まだ少しだけ静かです。受付の明かりがつき、ユニットに電源が入り、どこかで器具を並べる音がする。その時間に、スタッフ全員が入っているチャットへ、一通のメッセージが届きます。</p>
+        <blockquote><p>【本日のタスク割り当て】</p></blockquote>
+        <p>その日にやるべきことと、それを誰がやるのか。すでに決まった状態で並んでいます。決めたのは、私ではありません。</p>
+
+        <hr>
+
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">最初は、自分のために作った</a></li><li><a href="#midashi-2">宛先を、みんなに変えてみた</a></li><li><a href="#midashi-3">終わった仕事ほど、数えられない</a></li><li><a href="#midashi-4">「成功」と言いながら、何も届いていなかった</a></li><li><a href="#midashi-5">まだ、取り戻せていないもの</a></li></ol></nav><h2 id="midashi-1">最初は、自分のために作った</h2>
+        <p>白状すると、最初に作ったのはこれではありませんでした。院長である自分のために、その日の予定と、やることリストと、まだ読んでいないメールを、朝いちばんに一通にまとめて届けてもらう仕組みを作ったのです。早朝5時半、家族もまだ眠っている時間に、スマホが一度だけ鳴る。作ったときは、これで一日の始まり方が変わると思っていました。</p>
+        <p>でも、使っているうちに気づいてしまいました。それを読んでも、何も決まらないのです。予定はカレンダーを開けば書いてある。メールはメールを開けば読める。朝にもう一度まとめて渡されても、目を通す場所がひとつ増えただけでした。私はその仕組みを、ほどなくして止めました。</p>
+        <p>情報をきれいにまとめても、人は動かない。人が動くのは、「これはあなたの仕事です」と手渡されたときなのだと、あとになって思います。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-2">宛先を、みんなに変えてみた</h2>
+        <p>自分あての仕組みが空振りに終わったのと、ほぼ同じころ。もうひとつ作っていたものがありました。医院のタスク管理に登録してある「今日が期限の仕事」を拾い、その日に出勤しているスタッフへ割り振って、全体のチャットに流す仕組みです。</p>
+        <p>中身は、さっきのものとそれほど変わりません。違うのは宛先だけ。自分ではなく、みんなに向けて。そして、こちらは続きました。</p>
+        <p>朝礼の10分を、仕事を「配る」ことに使うのか、「確かめる」ことに使うのか。朝礼が始まる前に仕事がもう配られていれば、あとは順番と時間を確かめるだけでいい。たった10分ですが、その使い道が変わるだけで、朝の空気は少し違ってきます。</p>
+        <figure><img src="img/zu_08a.png" alt="自分あてとみんなあての朝の知らせを比べた図" loading="lazy" width="1280" height="720"></figure>
+
+        <h3>名簿より、予約帳のほうが正直だった</h3>
+        <p>作っていて意外だったのは、「今日、誰が出勤しているか」を知ることが、思っていたよりずっと難しかったことです。</p>
+        <p>最初はシフト表を見ていました。ところがシフト表は、前の週に作ったときのまま。急なお休みや交代は、そこには書かれていないことがあります。本当の「今日」が書いてあったのは、予約帳のほうでした。朝のうちに「有給」「欠勤」と書き込まれる、あの欄です。</p>
+        <p>名前のない「有給」だけのメモもあります。そのときは、書かれている列から誰のことかを読み取ります。それでも分からないときは、無理に割り振らず、「誰のお休みか確認してください」と一言添えて投稿します。機械に任せるところと、人に聞くところ。その境目をどこに引くかが、いちばん時間のかかったところでした。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-3">終わった仕事ほど、数えられない</h2>
+        <p>配れるようになると、今度は「本当に終わったのか」が気になり始めました。そこで、前の日に配った仕事がいくつ終わって、いくつ残っているかを、翌朝のメッセージに添えることにしました。</p>
+        <p>ここで、思わぬ壁にぶつかります。タスク管理の画面には「すべて388件」と出ているのに、外から取り出せたのは115件だけ。調べてみると、完了した仕事は一覧から消えてしまう作りになっていました。終わったものほど、数えられない。</p>
+        <figure><img src="img/zu_08b.png" alt="画面の388件に対し外から取り出せたのは115件だったことを示す図" loading="lazy" width="1280" height="720"></figure>
+        <p>だから、発想を逆にしました。配った時点でこちらに控えを残しておき、翌朝の一覧から消えていたら「終わった」と数える。消えたことで、終わったと知る。少しさびしい数え方ですが、これがいちばん確かでした。</p>
+
+        <h3>71件の、終わらない依頼</h3>
+        <p>数えているうちに、もうひとつ見えてきたものがありました。期限を過ぎたまま残っている依頼が、71件。いちばん古いものは、3年以上前が期限でした。</p>
+        <p>最初は「放置されている」と思いました。でも一件ずつ見ていくと、もうやらなくてよくなったのに、誰も消していないだけのものがたくさん混ざっていました。依頼した側が消さないかぎり、それは受け取った人の画面に、ずっと「あなたの宿題」として残り続けます。これはスタッフの問題ではなく、頼んだ側の問題でした。</p>
+        <p>いまは月曜の朝、期限切れのまま残っている依頼を、みんなから見えるところに出しています。実は最初、これも自分あてに出していました。でも、私ひとりが眺めていても、一件も片づかなかった。ここでもまた、自分あてはうまくいかなかったのです。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-4">「成功」と言いながら、何も届いていなかった</h2>
+        <p>恥ずかしい話も、ひとつ書いておきます。ある週、進捗のレポートも、スタッフ一人ひとりへの仕事の登録も、まったく出ていない朝が6回続きました。原因は、外のサービスとつなぐための認証が切れていたこと。それなのに、仕組みの実行結果は6回とも「成功」と表示されていました。</p>
+        <p>私はそれを信じていました。成功と出ているのだから、届いているのだろうと。認証をやり直して、記録に「6件すべて登録」と出ているのを自分の目で確かめたとき、ようやく「直った」と言えました。</p>
+        <p>成功と表示されることと、相手に届くことは、別のことです。それからは、つながらなかったらその場で失敗として止まり、私に知らせるようにしました。ただし、朝の割り当てだけは最後まで出し切ってから止まります。みんなの朝だけは、止めたくなかったからです。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-5">まだ、取り戻せていないもの</h2>
+        <p>いまの割り振りは、ランダムです。誰が何を得意としているか。その日、誰がどれだけ忙しいか。この仕組みは、まだ何も見ていません。人の顔を見ながら仕事を配っていたころには、たしかにあった小さな気づかいを、私はまだ取り戻せていません。</p>
+        <p>それでも、朝礼の前に今日の段取りが届いている朝は、私が「今日はこれとこれを」と言って回らなくても、一日が始まっていきます。</p>
+        <p>もしあなたの医院にも、毎朝だれかが口頭で配っている仕事があるなら、それをチャットに流すところから始めてみてください。割り振りが完璧でなくてもかまいません。宛先を「自分」から「みんな」に変えるだけで、朝は少し変わります。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"朝礼の前に、今日の段取りはもう配られている",
+ "datePublished":"2026-09-28",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"朝9時、診療前のチャットに今日の仕事と担当が届く。現役の歯科医院長が、自分あての朝のまとめは空振りに終わり、宛先を「みんな」に変えたら続いた話。終わった仕事ほど数えられない壁と、「成功」と表示されたまま何も届いていなかった一週間のこと。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a>
-        </div></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
