@@ -42,19 +42,14 @@
       "slug": "kiji-asa-junbi",
       "title": "朝礼の前に、今日の段取りはもう配られている",
       "posted": "2026-09-28"
+    },
+    {
+      "slug": "kiji-kuchikomi",
+      "title": "悪いクチコミへの返信は、感情のあるうちに書かない",
+      "posted": "2026-10-05"
     }
   ],
   "queue": [
-    {
-      "slug": "kiji-kuchikomi",
-      "menu": "20",
-      "title": "悪いクチコミへの返信は、感情のあるうちに書かない",
-      "angle": "返信の遅れと感情的な文面はどちらも損。下書きをAIに出させて、院長は選ぶだけにする。",
-      "posted": "",
-      "draft": "2026-09-23",
-      "draft_path": "_work\\2026-09-23_第2領域記事9",
-      "draft_note": "機内ループで下書き作成。図2枚は未作成。投稿は帰国後に院長判断。"
-    },
     {
       "slug": "kiji-kintai-kyuyo",
       "menu": "17",

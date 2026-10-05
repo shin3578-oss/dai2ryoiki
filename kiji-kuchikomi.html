@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域</title>
-<meta name="description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<title>悪いクチコミへの返信は、感情のあるうちに書かない｜第2領域</title>
+<meta name="description" content="★1の口コミが届いた朝、すぐに返したくなる。現役の歯科医院長が、★の数で返信の扱いを分けた理由と、作ったはずの返信が2か月届いていなかった話。">
+<link rel="canonical" href="https://shin3578-oss.github.io/dai2ryoiki/kiji-kuchikomi.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ブログ｜歯科医院・クリニックの事務作業をAIで自動化する第2領域">
-<meta property="og:description" content="現役の歯科医院長が、自分の医院で動かしている自動化の仕組みを書いています。自費の未収の突合、予約キャンセルの事前判定など、実際に毎日動いているものだけ。">
-<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/blog.html">
+<meta property="og:title" content="悪いクチコミへの返信は、感情のあるうちに書かない｜第2領域">
+<meta property="og:description" content="★1の口コミが届いた朝、すぐに返したくなる。現役の歯科医院長が、★の数で返信の扱いを分けた理由と、作ったはずの返信が2か月届いていなかった話。">
+<meta property="og:url" content="https://shin3578-oss.github.io/dai2ryoiki/kiji-kuchikomi.html">
 <meta property="og:site_name" content="第2領域">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://shin3578-oss.github.io/dai2ryoiki/img/og.jpg">
@@ -444,124 +444,142 @@
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
 </style>
+<style>
+  .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
+           border-radius:12px;background:color-mix(in srgb,var(--paper) 60%,#fff);}
+  .art-toc-h{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--ink-3);}
+  .art-toc ol{margin:.7rem 0 0;padding-left:1.3em;font-size:1rem;line-height:1.9;}
+  .art-toc li{margin-top:.35rem;}
+  .art-toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .art-toc a:hover{color:var(--green);border-bottom-color:currentColor;}
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <span class="word">第2領域</span>
       <span class="jp">医科・歯科のAI自動化</span>
     </a>
+    <a class="nav-link" href="blog.html">ブログ</a>
     <a class="nav-cta" href="index.html#contact">無料で相談する</a>
   </div>
 </header>
 
 <style>
-  .yl{max-width:none;}
-  .yl-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;}
-  @media (max-width:960px){.yl-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  @media (max-width:600px){.yl-grid{grid-template-columns:1fr;}}
-  .yl-item{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;
-           overflow:hidden;text-decoration:none;background:#fff;transition:border-color .2s,transform .2s;}
-  .yl-item:hover{border-color:var(--brand,#0E3A31);transform:translateY(-2px);}
-  .yl-thumb{display:block;width:100%;height:auto;aspect-ratio:1280/670;background:#0E3A31;}
-  .yl-body{padding:1.1rem 1.2rem 1.3rem;}
-  .yl-date{font-size:.8rem;color:var(--ink-3);letter-spacing:.02em;}
-  .yl-title{margin-top:.4rem;font-family:var(--serif);font-size:1.08rem;line-height:1.6;color:var(--ink);}
-  .yl-desc{margin-top:.6rem;font-size:.88rem;line-height:1.8;color:var(--ink-2);
-           display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
-  .yl-lead{max-width:44em;margin-top:1.6rem;font-size:1.05rem;line-height:2;color:var(--ink-2);}
+  .art{max-width:40em;margin-inline:auto;}
+  .art p{margin-top:1.4rem;font-size:1.05rem;line-height:2.05;color:var(--ink-2);}
+  .art p strong{color:var(--ink);font-weight:700;}
+  .art h2{margin-top:3.2rem;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.5rem);
+          line-height:1.6;color:var(--ink);}
+  .art h3{margin-top:2.4rem;font-size:1.05rem;font-weight:700;line-height:1.7;color:var(--ink);}
+  .art ol,.art ul{margin:1.4rem 0 0;padding-left:1.3em;color:var(--ink-2);font-size:1.05rem;line-height:2.05;}
+  .art ol li,.art ul li{margin-top:.5rem;}
+  .art hr{margin-top:3.2rem;border:0;border-top:1px solid var(--line);}
+  .art blockquote{margin:2rem 0 0;padding:1.3rem 1.5rem;background:#F4F7F6;
+                  border-left:4px solid #6FD3BC;border-radius:0 10px 10px 0;}
+  .art blockquote p{margin-top:0;color:var(--ink);font-size:1.05rem;line-height:1.95;}
+  .art figure{margin:2.2rem 0 0;}
+  .art figure img{display:block;width:100%;height:auto;aspect-ratio:1280/720;
+                  border-radius:12px;background:#0E3A31;}
+  .art-meta{margin-top:1.1rem;font-size:.9rem;color:var(--ink-3);letter-spacing:.02em;}
+  .art-lead{margin-top:1.6rem;font-size:1.12rem;line-height:1.95;color:var(--ink);}
+  .art-end{margin-top:3.4rem;padding-top:2rem;border-top:1px solid var(--line);}
+  .art-hero{display:block;width:100%;height:auto;aspect-ratio:1280/670;
+            margin-top:1.8rem;border-radius:12px;background:#0E3A31;}
 </style>
 
 <main id="top">
   <section>
-    <div class="wrap">
+    <div class="wrap narrow">
       <div class="kicker"><span class="eyebrow">ブログ</span></div>
-      <h1 class="h2">ブログ</h1>
-      <div class="yl">
-        <p class="yl-lead">現役の歯科医院長が、自分の医院で実際に動かしている仕組みの話を書いています。うまくいった話だけでなく、まだ測れていないことも、そのまま書きます。</p>
-        <div class="yl-grid">
-        <a class="yl-item" href="kiji-kuchikomi.html">
-          <img class="yl-thumb" src="img/thumb_09.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年10月5日</div>
-            <div class="yl-title">悪いクチコミへの返信は、感情のあるうちに書かない</div>
-            <p class="yl-desc">★1の口コミが届いた朝、すぐに返したくなる。★4以上は自動でお礼を返し、★3以下は下書きだけ届く形にした理由と、作ったはずの返信が2か月ひとつも届いていなかった話。口コミが減ると、★1の1件の重さが変わることも。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-asa-junbi.html">
-          <img class="yl-thumb" src="img/thumb_08.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月28日</div>
-            <div class="yl-title">朝礼の前に、今日の段取りはもう配られている</div>
-            <p class="yl-desc">自分のために作った朝のまとめは、読んでも何も決まらなかった。宛先を「みんな」に変えたら、仕組みは続いた。終わった仕事ほど数えられない壁と、「成功」と表示されたまま何も届いていなかった一週間の話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-shuichi-kaigi.html">
-          <img class="yl-thumb" src="img/thumb_07.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月21日</div>
-            <div class="yl-title">毎朝リストを出すより、週1回の会議で話すほうが効いた</div>
-            <p class="yl-desc">8月7日から毎朝リストを出す仕組みを動かして、20日で止まりました。代わりに話したのは、もともと毎週やっているドクターのミーティングと新患カンファレンス。そのあと外部の点検の指摘がどう変わったかと、自分のチェックの数字が98.6%から21%に下がった理由。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-sotsugyou-kengen.html">
-          <img class="yl-thumb" src="img/thumb_06.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年9月14日</div>
-            <div class="yl-title">卒業したスタッフの権限を、辞めてから数えはじめた</div>
-            <p class="yl-desc">退職が決まってから数えたら、共有しているファイルが77件ありました。そのうち48件は、共有を外すだけでは医院に残りません。持ち主を移す作業は在職中にしか頼めない、という構造の話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nouhin-matching.html">
-          <img class="yl-thumb" src="img/thumb_05.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月29日</div>
-            <div class="yl-title">材料の請求書は、合っている前提で払っていました</div>
-            <p class="yl-desc">請求書と紙の納品書は、置いてある場所も届く形も違います。だから誰も突き合わせていませんでした。月末に全明細を1行ずつ自動で消し込むようにして、44行のうち1件・3,000円の差異が残った話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-nippo-ai.html">
-          <img class="yl-thumb" src="img/thumb_04.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月27日</div>
-            <div class="yl-title">日報のコメントに、私は1分も使っていません</div>
-            <p class="yl-desc">20人あまりの日報に毎日返事を書くのは、根性では続きません。AIに書かせるにあたって最初にやったのは、褒める言葉を全部禁止にすることでした。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-recept-check.html">
-          <img class="yl-thumb" src="img/thumb_03.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月26日</div>
-            <div class="yl-title">レセプトの間違いは、外注の返事を待たずに見つけている</div>
-            <p class="yl-desc">外部の点検は正確でも、返ってくるまでに2日かかります。その2日を自分で埋めるために、ルールを6つだけ作りました。見逃さない率98.6％まで測ってから運用に入れた話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-cancel-yosoku.html">
-          <img class="yl-thumb" src="img/thumb_02.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月25日</div>
-            <div class="yl-title">キャンセルされる予約は、前の日にわかる</div>
-            <p class="yl-desc">キャンセルそのものは減りません。減らせるのは、空いた枠が無駄になる量のほうです。毎晩1,680名の予約を3つのルールで自動判定して、急患枠の隣に寄せている話。</p>
-          </div>
-        </a>
-        <a class="yl-item" href="kiji-jihi-mishu.html">
-          <img class="yl-thumb" src="img/thumb_01.png" alt="" loading="lazy" width="1280" height="670">
-          <div class="yl-body">
-            <div class="yl-date">2026年8月24日</div>
-            <div class="yl-title">90万円の入金もれは、誰のミスでもなく生まれた</div>
-            <p class="yl-desc">自費の未収は「請求が消える」のではなく「入金が立たないだけ」。だから画面には出ません。レセコンと成約記録の突合を自動化して909,370円を見つけた話。</p>
-          </div>
-        </a>
+      <h1 class="h2">悪いクチコミへの返信は、<span class="nw">感情のあるうちに</span><span class="nw">書かない</span></h1>
+      <p class="art-meta">2026年10月5日　第2領域</p>
+      <img class="art-hero" src="img/thumb_09.png" alt="" width="1280" height="670">
+
+      <div class="art">
+        <p class="art-lead">朝5時半、まだ暗い部屋でスマホが一度だけ鳴ります。医院のGoogleの口コミに新しい投稿があると、その知らせが私のところへ届くようにしてあるのです。画面をのぞくと、★がひとつだけ並んでいる朝があります。</p>
+        <p>本文を読み進めるうちに、胸のあたりが少し熱くなる。そこには、こちらの記憶とは違うことが書かれていることが多いからです。いますぐ返したい。違うと言いたい。でも、いまはその日のうちには書きません。そう決めるまでに、ずいぶん遠回りをしました。</p>
+
+        <hr>
+
+
+        <nav class="art-toc" aria-label="目次"><div class="art-toc-h">目次</div><ol><li><a href="#midashi-1">★の数で、仕組みを分けた</a></li><li><a href="#midashi-2">返す前に、書かれたことを分けてみる</a></li><li><a href="#midashi-3">動いていると、思い込んでいた</a></li><li><a href="#midashi-4">母数が減ると、★1の重さが変わる</a></li><li><a href="#midashi-5">書いてもらう側は、まだ止まったまま</a></li></ol></nav><h2 id="midashi-1">★の数で、仕組みを分けた</h2>
+        <p>口コミへの返信を仕組みにするとき、最初に決めたのは、★の数で扱いを分けることでした。</p>
+        <p>★4以上には、内容に合わせたお礼の文が、私が目を通す前に自動で投稿されます。私はあとから読むだけです。★3以下は、投稿されません。返信の下書きが3つ、私のところへ届くだけです。ひとつは標準的なもの。ひとつは、記録と照らし合わせて確かめる姿勢を淡々と示すもの。もうひとつは、修正や削除の検討をお願いするところまで踏み込んだもの。そこから選んで、直して、最後は自分の手で貼ります。</p>
+        <p>なぜ分けたのか。★1への返信は、口コミの中でいちばん読まれるからです。うまく返せば、それを読んだ人の受け取り方は変わります。けれど失敗すれば、口コミの本文よりも返信のほうが問題になる。そして感情のあるうちに書いた返信は、たいてい後者になります。自動で返していいのは、お礼だけ。そこから先は、人が時間をおいて選ぶことにしました。</p>
+        <figure><img src="img/zu_09a.png" alt="★4以上は自動でお礼を投稿し、★3以下は返信の下書きだけが届く仕組みを示す図" loading="lazy" width="1280" height="720"></figure>
+
+        <h3>下書きに入れないと決めたこと</h3>
+        <p>下書きを作らせるとき、書かないことをいくつか決めました。確認していないことを謝らない。やっていない法的な対応を、やったかのように書かない。感嘆符や絵文字を使わない。「削除してください」と命令の形で書かない。</p>
+        <p>いちばん大事なのは、最初のひとつです。確かめる前に謝ってしまうと、それは書かれた内容を認めたことになります。あとで記録を見直して事実が違っていたとしても、一度公開した謝罪はもう戻せません。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-2">返す前に、書かれたことを分けてみる</h2>
+        <p>返信の文を考えるより先に、書かれた内容を3つに分けるようにしています。事実として書かれていること、評価や論評として書かれていること、そして感想です。</p>
+        <p>たとえば「待たされた」は、予約の記録と照らし合わせることができます。「感じが悪い」は、照らし合わせようがありません。照らせるものだけ、予約や診療の記録を確かめてから触れる。照らせないものに反論を始めると、水掛け論がそのまま公開の場に残り続けます。</p>
+
+        <h3>消えるものと、消えないもの</h3>
+        <p>★3以下の下書きには、Googleのガイドラインに反しているかどうかの見立てと、報告するときの文面も一緒に届きます。誤解されたくないのですが、気に入らないから消す、という話ではありません。</p>
+        <p>消えやすいのは、短い暴言や、なりすまし、業者による投稿、医院と関係のない内容、個人情報が書かれているもの。筋の通った長い文章や、事実の受け取り方が違うだけのものは、報告しても消えません。報告は非公開で、相手にもほかの誰にも見えません。出してみて消えなければ、そのときは返信で向き合うことになります。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-3">動いていると、思い込んでいた</h2>
+        <p>ここまで書くと、ずいぶん整った仕組みに聞こえるかもしれません。白状すると、この仕組みは作ってから2か月ほど、一度も返信を投稿できていませんでした。</p>
+        <p>気づいたのは、口コミの施策がいまどうなっているかを、あらためて見直そうとしたときです。返信のついていない口コミが、5件たまっていました。そのうち3件が★1でした。</p>
+        <p>原因は、うちの医院を指す番号の取り方を間違えていたことでした。仕組みは毎回、存在しない宛先へ返信を送ろうとして、そのたびに失敗していたのです。返信の文そのものは、きちんと作られていました。届かなかったのは、最後のひと押しだけでした。</p>
+        <figure><img src="img/zu_09b.png" alt="返信文は作れていたが投稿が約2か月失敗し、未返信が5件たまっていた流れを示す図" loading="lazy" width="1280" height="720"></figure>
+        <p>記録を見返すと、その失敗はちゃんと残っていました。ただ、うまくいった日も失敗した日も同じような形で流れていたので、私には見分けがつかなかった。★1に2か月も返事をしていない状態で、私は「動いている」と思っていたのです。</p>
+        <p>返信の仕組みを作ったことと、返信が届いたことは、別のことでした。直したあとは、実際に投稿できた件数を数えて確かめるようにしています。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-4">母数が減ると、★1の重さが変わる</h2>
+        <p>直したその日に、医院の口コミをあらためて数え直しました。224件、平均は★4.5。数字だけ見れば、悪くないように見えます。</p>
+        <p>けれど月ごとに並べてみると、違う景色が見えてきました。1年前のいまごろは、月に9件から11件ほどの口コミが入っていました。それが今年に入ってからは、月に0件から3件。1件も入らない月もありました。</p>
+        <p>月に9件入っていたころなら、★1が1件混じっても平均はほとんど動きません。でも月に1件しか入らなければ、その1件が★1だったとき、その月はまるごと★1.0になります。</p>
+        <p>返信をどれだけ速くするかより、月に何件の口コミが入るか。そのほうがずっと効くのだと、数字に教えられました。</p>
+
+        <h3>消えていた★5</h3>
+        <p>数え直していて、もうひとつ気づいたことがあります。書いていただいたはずの★5が2件、いまの224件の中に見当たらないのです。こちらで確かに確認していた口コミでした。投稿した方が自分で消したのか、Googleの仕組みで外されたのか、理由はまだ分かっていません。</p>
+
+        <hr>
+
+
+        <h2 id="midashi-5">書いてもらう側は、まだ止まったまま</h2>
+        <p>いま、★1が届いた朝にすることは、決まっています。その日のうちには書かない。書かれたことを、記録と照らせるものと照らせないものに分ける。届いた下書きは、時間をおいてから選ぶ。</p>
+        <p>返す仕組みは、ようやく直りました。でも、口コミを書いていただく側は、まだ手を打てていません。Googleの規約が変わり、院内でその場でお願いすることも、スタッフの名前を書いてもらうよう頼むこともできなくなりました。どうすれば自然な形でお願いできるのか、いまも考えている途中です。</p>
+        <p>もしあなたの医院にも、★1を見た朝に手が止まってしまう経験があるなら、まずは「その日のうちには返さない」と決めるところから始めてみてください。返信の文は、あとからでも整えられます。でも、感情のまま公開した言葉は、ずっとそこに残ります。</p>
+
+        <div class="art-end">
+          <a class="btn btn-primary" href="index.html">第2領域でできることを見る</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BlogPosting",
+ "headline":"悪いクチコミへの返信は、感情のあるうちに書かない",
+ "datePublished":"2026-10-05",
+ "inLanguage":"ja",
+ "author":{"@type":"Organization","name":"第2領域"},
+ "publisher":{"@type":"Organization","name":"第2領域"},
+ "description":"★1の口コミが届いた朝、その日のうちには返信を書かない。現役の歯科医院長が、★4以上はお礼を自動で投稿し、★3以下は下書きだけを届けて人が選ぶ仕組みにした話。返信文は作れていたのに投稿だけが約2か月失敗していたことと、口コミの数が減ると★1の重さが変わることも書いた。"
+}
+</script>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-row">
       <span class="word serif">第2領域</span>
-      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a>
-        </div></span>
+      <span class="cc">© 2026 第2領域 — 医科・歯科のためのAI自動化　<a href="blog.html" style="text-decoration:underline;">ブログ</a>　<a href="index.html" style="text-decoration:underline;">トップへ戻る</a></span>
     </div>
   </div>
 </footer>
