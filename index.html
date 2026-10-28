@@ -502,18 +502,25 @@
   .m-foot{margin-top:1.4rem;font-size:.86rem;color:var(--ink-3);line-height:1.8}
 
   /* ---- 金額をバーンと／辞めない秘書／できることの図（2026-10-29） ---- */
-  .mband{background:var(--hero-bg);color:var(--hero-ink);padding:clamp(3.4rem,7vw,5.2rem) 0}
-  .mband h2{margin:.9rem 0 0;font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.55;font-weight:600}
-  .mb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
-  @media(max-width:900px){.mb-grid{grid-template-columns:1fr}}
-  .mb{padding:1.5rem 1.5rem 1.4rem;border:1px solid rgba(241,246,243,.2);border-radius:14px;background:rgba(255,255,255,.04)}
-  .mb-hot{background:rgba(111,211,188,.14);border-color:var(--hero-mint)}
-  .mb-t{display:block;font-size:.88rem;font-weight:700;letter-spacing:.08em;color:var(--hero-mint)}
-  .mb b{display:block;margin-top:.5rem;font-family:var(--serif);font-size:clamp(2.2rem,5.2vw,3.5rem);line-height:1.1;font-weight:600;font-variant-numeric:tabular-nums;color:#fff}
-  .mb b i{font-style:normal;font-size:.42em;margin-left:.15em;color:var(--hero-mint)}
-  .mb-s{display:block;margin-top:.8rem;font-size:.86rem;line-height:1.75;color:var(--hero-muted)}
-  .mb-foot{margin-top:1.4rem;font-size:.86rem;color:var(--hero-muted)}
-  .mb-foot a{color:var(--hero-mint);font-weight:700;margin-left:.6em}
+  .mband{background:#FBF1E4;color:var(--ink);padding:clamp(3.4rem,7vw,5.2rem) 0;border-top:1px solid #EBDCC6;border-bottom:1px solid #EBDCC6}
+  .mband .eyebrow{color:#9A4A22}
+  .mband h2{margin:.9rem 0 0;font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.55;font-weight:600;color:#2A1D14}
+  .mb-eq{display:grid;grid-template-columns:1fr auto 1fr auto 1.15fr;gap:.8rem;align-items:center;margin-top:2rem}
+  @media(max-width:900px){.mb-eq{grid-template-columns:1fr;gap:.4rem}}
+  .mb-box{padding:1.3rem 1.3rem 1.2rem;border-radius:14px;background:#fff;border:1px solid #E8D9C3;text-align:center}
+  .mb-t{display:block;font-size:.9rem;font-weight:700;line-height:1.5;color:#6B5545}
+  .mb-box b{display:block;margin-top:.6rem;font-family:var(--serif);font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;color:#2A1D14}
+  .mb-box b i{font-style:normal;font-size:.45em;margin-left:.15em}
+  .mb-u{display:block;margin-top:.5rem;font-size:.9rem;font-weight:700;color:#6B5545}
+  .mb-op{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:600;color:#9A4A22;text-align:center}
+  .mb-res{background:#B8471F;border-color:#B8471F}
+  .mb-res .mb-t,.mb-res .mb-u{color:#FFE9DA}
+  .mb-res b{color:#fff;font-size:clamp(2.3rem,5vw,3.5rem)}
+  .mb-notes{margin:1.6rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem;font-size:.92rem;line-height:1.8;color:#5A4636}
+  .mb-notes li{padding-left:1.1em;position:relative}
+  .mb-notes li::before{content:"";position:absolute;left:0;top:.8em;width:.45em;height:.45em;border-radius:50%;background:#B8471F}
+  .mb-notes b{color:#2A1D14}
+  .mb-notes a{color:#9A4A22;font-weight:700;margin-left:.6em}
   .emp{padding:clamp(3.4rem,7vw,5rem) 0;background:var(--surface)}
   .emp-flow{margin-top:1.8rem;display:grid;gap:.9rem}
   .emp-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .6rem;padding:1rem 1.1rem;border-radius:12px;border:1px solid var(--line)}
@@ -581,14 +588,20 @@
   <!-- MONEYBAND -->
   <section class="mband" id="money">
     <div class="wrap">
-      <div class="kicker rise"><span class="eyebrow light">当院の実際の金額</span></div>
-      <h2 class="rise"><span class="nw">事務代行に払っていたお金が、</span><span class="nw">AIで要らなくなります。</span></h2>
-      <div class="mb-grid">
-        <div class="mb rise"><span class="mb-t">年に不要になる金額</span><b>1,782,000<i>円</i></b><span class="mb-s">毎月148,500円×12か月。事務代行は2026年11月末で終了（12月から浮きます）</span></div>
-        <div class="mb mb-hot rise"><span class="mb-t">AI（Claude）との差し引き</span><b>約115,500<i>円/月</i></b><span class="mb-s">年に約1,386,000円。Claudeは月約33,000円（$220・1ドル=150円の目安）を全額引いた計算</span></div>
-        <div class="mb rise"><span class="mb-t">これまでに払った金額</span><b>4,770,700<i>円</i></b><span class="mb-s">事務代行へ、30か月分（2024年3月〜2026年8月）</span></div>
+      <div class="kicker rise"><span class="eyebrow">当院の実際の金額</span></div>
+      <h2 class="rise"><span class="nw">事務代行をやめて、AIにしたら、</span><span class="nw">毎月 約11万円 浮きます。</span></h2>
+      <div class="mb-eq rise">
+        <div class="mb-box"><span class="mb-t">事務代行に<br>払っていたお金</span><b>148,500<i>円</i></b><span class="mb-u">毎月</span></div>
+        <div class="mb-op">−</div>
+        <div class="mb-box"><span class="mb-t">AI（Claude）に<br>払うお金</span><b>約33,000<i>円</i></b><span class="mb-u">毎月</span></div>
+        <div class="mb-op">＝</div>
+        <div class="mb-box mb-res"><span class="mb-t">毎月、浮くお金</span><b>約115,500<i>円</i></b><span class="mb-u">年に約139万円</span></div>
       </div>
-      <p class="mb-foot rise">金額は、当院の請求書台帳とAIの領収書で確かめた数字です。<a href="#numbers">くわしく見る →</a></p>
+      <ul class="mb-notes rise">
+        <li>事務代行は<b>2026年11月末で終了</b>します。浮くのは12月からです。</li>
+        <li>これまでに事務代行へ払った金額は、30か月（2024年3月〜2026年8月）で<b>4,770,700円</b>です。</li>
+        <li>Claudeは月$220（1ドル=150円で換算した目安）。当院の請求書台帳とAIの領収書で確かめた数字です。<a href="#numbers">くわしく見る →</a></li>
+      </ul>
     </div>
   </section>
 
