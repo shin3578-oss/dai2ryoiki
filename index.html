@@ -491,6 +491,11 @@
   .a-fig .m-dr{width:34px;height:34px}
   .a-fig .m-fig{max-width:460px;display:block;margin:.4rem auto 0}
   .a-fig figcaption{margin-top:.6rem;font-size:.84rem;line-height:1.7;color:var(--ink-3)}
+  .m-money{margin:2.4rem 0 0}
+  .m-money-h{margin:0;font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--ink)}
+  .m-money-s{margin:.6rem 0 0;font-size:.95rem;line-height:1.9;color:var(--ink-2)}
+  .m-money-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.2rem}
+  @media (max-width:980px){.m-money-grid{grid-template-columns:1fr}}
   .m-foot{margin-top:1.4rem;font-size:.86rem;color:var(--ink-3);line-height:1.8}
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important;}</style></noscript>
@@ -662,6 +667,31 @@
         <div class="m-ledger-t"><b>稼働中の自動化　106件</b><span>台帳の実数（2026年10月29日）。院長個人用・見張り用を含みます。</span></div>
         <div class="m-ledger-fig"><svg class="m-fig" viewBox="0 0 340 134" role="img" aria-hidden="true"><rect x="20.0" y="30" width="127.4" height="34" fill="var(--green)"/><text x="83.7" y="52" text-anchor="middle" class="sv-in">45</text><rect x="147.4" y="30" width="90.6" height="34" fill="var(--green-2)"/><text x="192.6" y="52" text-anchor="middle" class="sv-in">32</text><rect x="237.9" y="30" width="36.8" height="34" fill="var(--clay)"/><text x="256.3" y="52" text-anchor="middle" class="sv-in">13</text><rect x="274.7" y="30" width="45.3" height="34" fill="#8FA79F"/><text x="297.4" y="52" text-anchor="middle" class="sv-in">16</text><rect x="20" y="92" width="10" height="10" rx="2" fill="var(--green)"/><text x="35" y="101" class="sv-l2">毎日 45</text><rect x="101.25" y="92" width="10" height="10" rx="2" fill="var(--green-2)"/><text x="116.25" y="101" class="sv-l2">毎月 32</text><rect x="182.5" y="92" width="10" height="10" rx="2" fill="var(--clay)"/><text x="197.5" y="101" class="sv-l2">毎週 13</text><rect x="20" y="110" width="10" height="10" rx="2" fill="#8FA79F"/><text x="35" y="119" class="sv-l2">随時など 16</text></svg></div>
       </div>
+      
+      <div class="m-money rise">
+        <h3 class="m-money-h">浮いたお金と時間</h3>
+        <p class="m-money-s">当院が実際に払っていた事務代行の費用と、それがAIでどう変わるかです。数字は、請求書台帳（出金の記録）と、事務代行の残り時間の通知で確かめたものです。</p>
+        <div class="m-money-grid">
+          <article class="m-card">
+            <div class="m-head"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><h3>事務代行に払っていた金額</h3></div>
+            <svg class="m-fig" viewBox="0 0 340 128" role="img" aria-hidden="true"><rect x="10.0" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="20.3" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="30.6" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="40.9" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="51.2" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="61.5" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="71.8" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="82.1" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="92.4" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="102.7" y="22.0" width="7.4" height="78.0" rx="1.5" fill="var(--clay)"/><rect x="113.0" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="123.3" y="22.0" width="7.4" height="78.0" rx="1.5" fill="var(--clay)"/><rect x="133.6" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="143.9" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="154.2" y="58.7" width="7.4" height="41.3" rx="1.5" fill="var(--green-2)"/><rect x="164.5" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="174.8" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="185.1" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="195.4" y="60.1" width="7.4" height="39.9" rx="1.5" fill="var(--green-2)"/><rect x="205.7" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="216.0" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="226.3" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="236.6" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="246.9" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="257.2" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="267.5" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="277.8" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="288.1" y="60.1" width="7.4" height="39.9" rx="1.5" fill="var(--green-2)"/><rect x="298.4" y="61.0" width="7.4" height="39.0" rx="1.5" fill="var(--green-2)"/><rect x="308.7" y="60.1" width="7.4" height="39.9" rx="1.5" fill="var(--green-2)"/><text x="10" y="120" class="sv-l2">2024年3月</text><text x="330" y="120" text-anchor="end" class="sv-l2">2026年8月</text></svg>
+            <div class="m-num"><b>4,770,700円</b><span>30か月の合計（2024年3月〜2026年8月）。毎月ほぼ148,500円（税込）。赤い月は、上乗せの月です</span></div>
+            <p>契約は、毎月25時間です。時間あたりに直すと、約5,940円（148,500円÷25時間）になります。</p>
+          </article>
+          <article class="m-card">
+            <div class="m-head"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><h3>解約すると、年に不要になる金額</h3></div>
+            <div class="m-num"><b>年 1,782,000円</b><span>148,500円×12か月。事務代行は2026年11月末で終了します（解約は8月31日に申し出済み）</span></div>
+            <p>実際に浮くのは、12月からです。11月末までは、これまでどおり払います。AIの外部サービス利用料は、月に数百円〜数千円で済むものを選んでいます（必ず、事前に金額をお伝えします）。</p>
+          </article>
+          <article class="m-card">
+            <div class="m-head"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><h3>AIに置き換えて、依頼が消えた作業</h3></div>
+            <div class="m-num"><b>月 185分</b><span>集計の2件（スタッフの分析ページの集計145分＋求人サイトの分析40分）。2026年7月14日にAIで内製化し、8月から依頼がありません</span></div>
+            <p>上の時間単価で金額にすると、月に約18,300円（年に約219,600円）です。事務代行のままなら、かかっていた分の目安です。</p>
+          </article>
+        </div>
+        <p class="m-foot">時間単価は、月額を契約時間で割った目安です。院長やスタッフが手作業に使っていた時間は、記録がなく、ここには載せていません。</p>
+      </div>
+
       <div class="m-grid">
         <article class="m-card rise">
           <div class="m-head"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><h3>自費の入金もれ</h3></div>
@@ -855,7 +885,7 @@
     </div>
   </section>
 
-  <div class="band-full b-recep rise" role="img" aria-label="明るく清潔感のある医院の受付と待合"></div>
+  <div class="wrap"><div class="band b-recep rise" role="img" aria-label="明るく清潔感のある医院の受付と待合" style="aspect-ratio:2/1;"></div></div>
 
   <!-- STEPS -->
   <section class="pain-band" id="flow">
