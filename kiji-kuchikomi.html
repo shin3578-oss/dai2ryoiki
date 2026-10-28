@@ -443,6 +443,39 @@
     transition:opacity .8s cubic-bezier(.22,.7,.28,1),transform 1.25s cubic-bezier(.22,.7,.28,1);}
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
+
+  /* ---- 実際に出た数字（2026-10-29） ---- */
+  .m-band{padding:5rem 0;background:var(--surface-2)}
+  .m-ledger{margin:2rem 0 0;padding:1.2rem 1.4rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+  .m-ledger-fig{max-width:560px}
+  .m-ledger-t{display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:baseline}
+  .m-ledger-t b{font-family:var(--serif);font-size:1.25rem;color:var(--ink)}
+  .m-ledger-t span{font-size:.88rem;color:var(--ink-3)}
+  .m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1.6rem}
+  @media (max-width:760px){.m-grid{grid-template-columns:1fr}}
+  .m-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.3rem 1.1rem;display:flex;flex-direction:column}
+  .m-head{display:flex;align-items:center;gap:.7rem}
+  .m-head h3{margin:0;font-size:1.08rem;color:var(--ink)}
+  .m-dr{width:42px;height:42px;flex:none;background:var(--green-soft);border-radius:50%}
+  .m-fig{width:100%;height:auto;margin-top:.6rem}
+  .sv-v{font-size:13px;font-weight:700;fill:var(--ink)}
+  .sv-l{font-size:12.5px;fill:var(--ink-2)}
+  .sv-l2{font-size:11.5px;fill:var(--ink-2)}
+  .sv-in{font-size:12px;font-weight:700;fill:#fff}
+  .sv-gap{font-size:13px;font-weight:700;fill:var(--clay)}
+  .sv-big{font-size:21px;font-weight:700;fill:var(--ink)}
+  .m-num{margin-top:.4rem;display:flex;flex-direction:column;gap:.15rem}
+  .m-num b{font-family:var(--serif);font-size:1.9rem;line-height:1.2;color:var(--green)}
+  .m-num span{font-size:.86rem;color:var(--ink-3);line-height:1.6}
+  .m-card p{margin:.7rem 0 0;font-size:.95rem;line-height:1.85;color:var(--ink-2)}
+  .m-links{margin-top:auto;padding-top:.9rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+  .m-links a{font-size:.9rem;font-weight:700;color:var(--green-2);text-decoration:underline;text-underline-offset:3px}
+  .a-fig{margin:2rem 0 0;padding:1rem 1.1rem 1rem;background:var(--surface-2);border:1px solid var(--line);border-radius:12px}
+  .a-fig-h{display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:700;color:var(--green-2);letter-spacing:.08em}
+  .a-fig .m-dr{width:34px;height:34px}
+  .a-fig .m-fig{max-width:460px;display:block;margin:.4rem auto 0}
+  .a-fig figcaption{margin-top:.6rem;font-size:.84rem;line-height:1.7;color:var(--ink-3)}
+  .m-foot{margin-top:1.4rem;font-size:.86rem;color:var(--ink-3);line-height:1.8}
 </style>
 <style>
   .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
@@ -505,6 +538,7 @@
         <p>2026年9月3日にGoogleの口コミを数えたところ、224件で、平均は★4.5でした。数字だけ見れば、悪くありません。</p>
         <p>ところが、返信のついていない口コミが5件ありました。そのうち3件が★1です。</p>
         <p>もう一つ、月ごとの件数が減っていました。2025年の8月から10月は、月に9件から11件。2026年は、月に0件から3件でした。</p>
+        <!--afig--><figure class="a-fig"><div class="a-fig-h"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><span>数字で見る</span></div><svg class="m-fig" viewBox="0 0 340 124" role="img" aria-hidden="true"><rect x="13.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="61.0" y="62" text-anchor="middle" class="sv-big">224件</text><text x="61.0" y="86" text-anchor="middle" class="sv-l2">口コミ</text><path d="M108.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="122.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="170.0" y="62" text-anchor="middle" class="sv-big">★4.5</text><text x="170.0" y="86" text-anchor="middle" class="sv-l2">平均</text><path d="M217.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="231.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="279.0" y="62" text-anchor="middle" class="sv-big">5件</text><text x="279.0" y="86" text-anchor="middle" class="sv-l2">返信が無い</text></svg><svg class="m-fig" viewBox="0 0 340 100" role="img" aria-hidden="true"><rect x="112" y="18" width="130" height="24" rx="4" fill="var(--green)"/><text x="250" y="35" class="sv-v">月9〜11件</text><text x="104" y="35" text-anchor="end" class="sv-l">2025年8〜10月</text><rect x="112" y="56" width="36" height="24" rx="4" fill="var(--clay)"/><text x="156" y="73" class="sv-v">月0〜3件</text><text x="104" y="73" text-anchor="end" class="sv-l">2026年</text></svg><figcaption>2026年9月3日に数えた結果。月ごとの件数も減っていました</figcaption></figure><!--/afig-->
         <h2 id="midashi-3">3. その原因：感情と、「動いているはず」という思い込み</h2>
         <p>この章で分かること：なぜ、返信がうまくいかなくなるのか。</p>
         <p>悪い口コミの返信がうまくいかなくなる原因は、書く人の腕ではありません。仕組みのほうです。</p>
@@ -521,6 +555,7 @@
         <ul><li>★4以上：内容に合わせたお礼の返信が、私が読む前に自動で投稿される</li><li>★3以下：自動では投稿しない。返信の下書きと、確認の材料が、私のところへ届く。選んで、直して、最後は自分の手で貼る</li></ul>
         <p>自動で返していいのは、お礼だけ。そこから先は、人が、時間をおいて選びます。</p>
         <figure><img src="img/zu_kuchikomi2_a.png" alt="" loading="lazy" width="1280" height="720"></figure>
+        <!--afig--><figure class="a-fig"><div class="a-fig-h"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><span>数字で見る</span></div><svg class="m-fig" viewBox="0 0 340 124" role="img" aria-hidden="true"><rect x="13.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="61.0" y="62" text-anchor="middle" class="sv-big">★4以上</text><text x="61.0" y="86" text-anchor="middle" class="sv-l2">自動で返信</text><path d="M108.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="122.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="170.0" y="62" text-anchor="middle" class="sv-big">★3以下</text><text x="170.0" y="86" text-anchor="middle" class="sv-l2">下書きを院長へ</text><path d="M217.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="231.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="279.0" y="62" text-anchor="middle" class="sv-big">毎朝5:30</text><text x="279.0" y="86" text-anchor="middle" class="sv-l2">新着を点検</text></svg><figcaption>仕組みの流れ</figcaption></figure><!--/afig-->
         <p>この先では、★3以下に届くもの、書かないと決めたこと、返信の下書きを作る前にやること、約2か月動いていなかった原因と、直したあとの決まりを、数字つきで書いています。その部分は、noteの有料記事（980円）に載せています。</p>
         
 

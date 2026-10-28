@@ -443,6 +443,39 @@
     transition:opacity .8s cubic-bezier(.22,.7,.28,1),transform 1.25s cubic-bezier(.22,.7,.28,1);}
   .rise.hero-photo.in,.rise.band.in,.rise.band-full.in,.shot>.rise.in{transform:none;}
 
+
+  /* ---- 実際に出た数字（2026-10-29） ---- */
+  .m-band{padding:5rem 0;background:var(--surface-2)}
+  .m-ledger{margin:2rem 0 0;padding:1.2rem 1.4rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+  .m-ledger-fig{max-width:560px}
+  .m-ledger-t{display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:baseline}
+  .m-ledger-t b{font-family:var(--serif);font-size:1.25rem;color:var(--ink)}
+  .m-ledger-t span{font-size:.88rem;color:var(--ink-3)}
+  .m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1.6rem}
+  @media (max-width:760px){.m-grid{grid-template-columns:1fr}}
+  .m-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.3rem 1.1rem;display:flex;flex-direction:column}
+  .m-head{display:flex;align-items:center;gap:.7rem}
+  .m-head h3{margin:0;font-size:1.08rem;color:var(--ink)}
+  .m-dr{width:42px;height:42px;flex:none;background:var(--green-soft);border-radius:50%}
+  .m-fig{width:100%;height:auto;margin-top:.6rem}
+  .sv-v{font-size:13px;font-weight:700;fill:var(--ink)}
+  .sv-l{font-size:12.5px;fill:var(--ink-2)}
+  .sv-l2{font-size:11.5px;fill:var(--ink-2)}
+  .sv-in{font-size:12px;font-weight:700;fill:#fff}
+  .sv-gap{font-size:13px;font-weight:700;fill:var(--clay)}
+  .sv-big{font-size:21px;font-weight:700;fill:var(--ink)}
+  .m-num{margin-top:.4rem;display:flex;flex-direction:column;gap:.15rem}
+  .m-num b{font-family:var(--serif);font-size:1.9rem;line-height:1.2;color:var(--green)}
+  .m-num span{font-size:.86rem;color:var(--ink-3);line-height:1.6}
+  .m-card p{margin:.7rem 0 0;font-size:.95rem;line-height:1.85;color:var(--ink-2)}
+  .m-links{margin-top:auto;padding-top:.9rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+  .m-links a{font-size:.9rem;font-weight:700;color:var(--green-2);text-decoration:underline;text-underline-offset:3px}
+  .a-fig{margin:2rem 0 0;padding:1rem 1.1rem 1rem;background:var(--surface-2);border:1px solid var(--line);border-radius:12px}
+  .a-fig-h{display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:700;color:var(--green-2);letter-spacing:.08em}
+  .a-fig .m-dr{width:34px;height:34px}
+  .a-fig .m-fig{max-width:460px;display:block;margin:.4rem auto 0}
+  .a-fig figcaption{margin-top:.6rem;font-size:.84rem;line-height:1.7;color:var(--ink-3)}
+  .m-foot{margin-top:1.4rem;font-size:.86rem;color:var(--ink-3);line-height:1.8}
 </style>
 <style>
   .art-toc{margin-top:2.6rem;padding:1.3rem 1.5rem 1.5rem;border:1px solid var(--line);
@@ -499,6 +532,7 @@
         <ul><li>キャンセル率5%：月に約16.5万円</li><li>キャンセル率10%：月に約33万円</li><li>キャンセル率15%：月に約49.4万円</li></ul>
         <p>（藤城歯科の記事、2026年5月30日。当院の数字ではありません。あくまで目安です）</p>
         <p>では、受付が毎朝、予約表を見て「この人は飛びそう」と覚えておけばいいのか。人の記憶に頼る仕事は、忙しい日にまず抜けます。</p>
+        <!--afig--><figure class="a-fig"><div class="a-fig-h"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><span>数字で見る</span></div><svg class="m-fig" viewBox="0 0 340 130" role="img" aria-hidden="true"><rect x="70" y="20" width="50.1" height="22" rx="4" fill="var(--green-2)"/><text x="128.1" y="36.0" class="sv-v">約16.5万</text><text x="62" y="36.0" text-anchor="end" class="sv-l">5%</text><rect x="70" y="54" width="100.2" height="22" rx="4" fill="var(--green)"/><text x="178.2" y="70.0" class="sv-v">約33万</text><text x="62" y="70.0" text-anchor="end" class="sv-l">10%</text><rect x="70" y="88" width="150.0" height="22" rx="4" fill="var(--clay)"/><text x="228.0" y="104.0" class="sv-v">約49.4万</text><text x="62" y="104.0" text-anchor="end" class="sv-l">15%</text></svg><figcaption>キャンセル率ごとの、月の損の目安（外部の記事の試算。1日20枠・月20日診療。当院の数字ではありません）</figcaption></figure><!--/afig-->
         <h2 id="midashi-3">3. その原因：患者さんのせいでも、先生のせいでもありません</h2>
         <p>この章で分かること：なぜ、キャンセルは防げないのか。</p>
         <p>急な仕事、体調、子どもの発熱。理由は、こちらからは見えません。責めても枠は埋まりませんし、来にくくなるだけです。</p>
@@ -515,6 +549,7 @@
         <p>そして、印がついた方の予約を、診察室の予約表の「欄外」という列に自動で動かします。簡単に言うと、急患を入れられる枠と隣り合わせにしておく置き方です。当日に穴が空いても、そこへ急患を入れられて、診療が止まりません。来ていただけたら、そのまま普通に診るだけです。</p>
         <figure><img src="img/zu_cancel2_a.png" alt="" loading="lazy" width="1280" height="720"></figure>
         <p>この仕組みは、毎晩、自動で動いています。人は、何もしません。</p>
+        <!--afig--><figure class="a-fig"><div class="a-fig-h"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><span>数字で見る</span></div><svg class="m-fig" viewBox="0 0 340 124" role="img" aria-hidden="true"><rect x="13.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="61.0" y="62" text-anchor="middle" class="sv-big">前の晩</text><text x="61.0" y="86" text-anchor="middle" class="sv-l2">予約を点検</text><path d="M108.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="122.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="170.0" y="62" text-anchor="middle" class="sv-big">3つの判定</text><text x="170.0" y="86" text-anchor="middle" class="sv-l2">印を付ける</text><path d="M217.5 63 h12 m-5 -5 l5 5 l-5 5" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round"/><rect x="231.0" y="24" width="96" height="78" rx="10" fill="var(--green-soft)" stroke="var(--line-strong)"/><text x="279.0" y="62" text-anchor="middle" class="sv-big">欄外へ</text><text x="279.0" y="86" text-anchor="middle" class="sv-l2">自動で移す</text></svg><figcaption>毎晩の流れ</figcaption></figure><!--/afig-->
         <p>この先では、3つの判定の作り方、印の付け方、欄外への動かし方、動かしたあとの安全確認、知らせ方、つまずいたところ、そして導入について、書いています。その部分は、noteの有料記事（980円）に載せています。</p>
         
 
