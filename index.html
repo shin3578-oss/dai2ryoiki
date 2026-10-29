@@ -563,9 +563,9 @@
   @media(max-width:760px){.cmp-row{grid-template-columns:1fr}}
   .cmp-l b{display:block;font-size:1.02rem;color:var(--ink)}
   .cmp-l span{display:block;margin-top:.3rem;font-size:.82rem;line-height:1.7;color:var(--ink-3)}
-  .cmp-bar{display:flex;align-items:center;gap:.8rem;min-height:3.2rem;flex-wrap:nowrap}
+  .cmp-bar{display:flex;align-items:center;gap:.8rem;min-height:3.2rem;flex-wrap:wrap}
   .cmp-bar i{display:block;flex:none;height:2.6rem;border-radius:8px}
-  .c-gray{background:#B9AFA4}.c-clay{background:#D58A5F}.c-green{background:var(--green-2)}
+  .c-gray{background:#B9AFA4}.c-gray2{background:repeating-linear-gradient(45deg,#D8D0C6 0 6px,#E9E3DA 6px 12px)}.c-clay{background:#D58A5F}.c-green{background:var(--green-2)}
   .cmp-bar em{font-style:normal;font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#1d1d1d;white-space:nowrap}
   .cmp-row.on .cmp-bar em{color:var(--green)}
   .cmp-row.on .cmp-bar{flex-wrap:wrap;gap:.2rem .8rem;padding:.2rem 0}
@@ -677,19 +677,19 @@
           </div>
         </div>
         <div class="mb-case rise">
-          <div class="mb-ct"><span class="mb-no">B</span>事務スタッフを雇う場合と比べると</div>
+          <div class="mb-ct"><span class="mb-no">B</span>事務長を雇う場合と比べると</div>
           <div class="mb-eq">
-            <div class="mb-box"><span class="mb-t">パートの事務<br>スタッフ1人</span><b>約166,700<i>円</i></b><span class="mb-u">毎月（年約200万円）</span></div>
+            <div class="mb-box"><span class="mb-t">事務長を<br>1人雇う</span><b>約58〜83<i>万円</i></b><span class="mb-u">毎月（年700〜1,000万円）</span></div>
             <div class="mb-op">−</div>
             <div class="mb-box"><span class="mb-t">AIに払う<br>お金</span><b>約33,000<i>円</i></b><span class="mb-u">毎月</span></div>
             <div class="mb-op">＝</div>
-            <div class="mb-box mb-res"><span class="mb-t">毎月、浮く</span><b>約133,700<i>円</i></b><span class="mb-u">年に約160万円</span></div>
+            <div class="mb-box mb-res"><span class="mb-t">毎月、浮く</span><b>約55〜80<i>万円</i></b><span class="mb-u">年に約660〜960万円</span></div>
           </div>
         </div>
       </div>
 
       <ul class="mb-notes rise">
-        <li>パートの事務スタッフは、週5日・1日6時間・時給1,200円で、社会保険の医院負担を含む概算（年約200万円）です。採用と教育の手間は、別にかかります。</li>
+        <li>事務長の年700〜1,000万円は、想定です（社会保険の医院負担を含む総額）。採用と教育の手間は、別にかかります。</li>
         <li>AIの月額プランは月$220（1ドル=150円で換算した目安）。当院の請求書台帳とAIの領収書で確かめた数字です。<a href="#numbers">くわしく見る →</a></li>
       </ul>
     </div>
@@ -716,7 +716,7 @@
         <article class="m-card rise">
           <div class="m-head"><svg class="m-dr" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12" fill="#F7D4B3"/><path d="M19 21a13 13 0 0 1 26 0v1H19z" fill="#2B2B2B"/><circle cx="27" cy="25" r="1.5" fill="#2B2B2B"/><circle cx="37" cy="25" r="1.5" fill="#2B2B2B"/><path d="M28 30q4 3 8 0" fill="none" stroke="#9C5B3A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 64c0-14 10-24 24-24s24 10 24 24z" fill="#fff" stroke="#C6D0CB"/><path d="M26 41l6 10 6-10z" fill="#9FE8C7"/></svg><h3>採用・教育・退職の、3つのコスト</h3></div>
           <div class="emp-zero"><div><b>0円</b><span>採用の広告・面接</span></div><div><b>0日</b><span>教育・引き継ぎ</span></div><div><b>なし</b><span>辞めるリスク</span></div></div>
-          <p>事務スタッフ1人（週5日・1日6時間・時給1,200円で、社会保険の医院負担を含む概算）は、年に約200万円。採用と教育の手間は、別にかかります。第2領域は、初年度56万円（構築20万円＋月3万円×12）です。</p>
+          <p>事務長1人は、想定で年に700〜1,000万円（社会保険の医院負担を含む総額）。採用と教育の手間は、別にかかります。第2領域は、初年度56万円（構築20万円＋月3万円×12）です。</p>
           <p>AIにも、止まることはあります。画面の変更やパスワードの変更です。止まったことが、その日のうちに分かる仕組みを、あわせてお渡しします。</p>
         </article>
       </div>
@@ -1123,26 +1123,26 @@
         <p class="lead">集計や転記が回らないとき、医院がとる手は2つです。人を増やすか、事務代行に出すか。どちらも<b>人が動くぶん、毎年かかり続けます。</b>そして人を雇えば採用と教育の手間がかかり、辞めればまた振り出しに戻ります。</p>
         <div class="cmp rise">
           <div class="cmp-row">
-            <div class="cmp-l"><b>パートの事務スタッフ1人</b><span>週5日・1日6時間・時給1,200円。社会保険の医院負担を含む概算です（採用と教育の手間は別）</span></div>
-            <div class="cmp-bar"><i class="c-gray" style="width:50%"></i><em>年 約200万円</em></div>
+            <div class="cmp-l"><b>事務長1人</b><span>想定年収700〜1,000万円。社会保険の医院負担を含む総額です（採用と教育の手間は別）</span></div>
+            <div class="cmp-bar"><i class="c-gray" style="width:36%"></i><i class="c-gray2" style="width:15.4%"></i><em>年 700〜1,000万円</em></div>
           </div>
           <div class="cmp-row">
             <div class="cmp-l"><b>事務代行（当院が実際に払っていた金額）</b><span>月148,500円×12か月。ほかの歯科向け事務代行は、年102〜240万円（各社の公表額から計算）</span></div>
-            <div class="cmp-bar"><i class="c-clay" style="width:44.6%"></i><em>年 約178万円</em></div>
+            <div class="cmp-bar"><i class="c-clay" style="width:9.1%"></i><em>年 約178万円</em></div>
           </div>
           <div class="cmp-row on">
             <div class="cmp-l"><b>第2領域</b><span>はじめの構築20万円＋月額3万円。採用も、教育も、辞められることもありません</span></div>
-            <div class="cmp-bar"><i class="c-green" style="width:14%"></i><em>初年度 56万円</em><u>2年目以降は、年36万円</u></div>
+            <div class="cmp-bar"><i class="c-green" style="width:4%"></i><em>初年度 56万円</em><u>2年目以降は、年36万円</u></div>
           </div>
         </div>
         <div class="cmp-sum rise">
           <b>3年間で比べると</b>
           <div class="cmp-3">
-            <div><span>パート</span><strong>600万円</strong></div>
+            <div><span>事務長</span><strong>2,100〜3,000万円</strong></div>
             <div><span>事務代行（当院の実績）</span><strong>約535万円</strong></div>
             <div class="on"><span>第2領域</span><strong>128万円</strong></div>
           </div>
-          <p>パートと比べて約472万円、当院の事務代行と比べて約407万円の差になります。月ごとに見ると、2か月目から、雇うより安くなります。</p>
+          <p>事務長を雇う場合と比べて約1,970〜2,870万円、当院の事務代行と比べて約407万円の差になります。月ごとに見ると、1か月目から、事務長を雇うより安くなります。</p>
         </div>
         <p class="cap">ただし、人にしかできない仕事があります。電話に出ること、患者さんに声をかけること、迷ったときに考えること。<strong>AIが引き受けるのは、人がやる必要のない作業だけです。</strong>スタッフを減らすための道具ではなく、いまいるスタッフが本来の仕事に戻るための道具だと思ってください。</p>
       </div>
