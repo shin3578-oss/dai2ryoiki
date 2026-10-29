@@ -541,6 +541,31 @@
   .svc-item p.cap{margin:.5rem 0 0;font-size:.86rem;line-height:1.6;color:var(--ink-2)}
   .svc-item .mc{display:block;width:100%;max-width:330px;height:auto;margin-top:.55rem}
   .svc-item p.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+  /* ---- 料金比較を棒グラフに（2026-10-29） ---- */
+  .cmp{margin-top:1.6rem;display:grid;gap:1rem}
+  .cmp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1rem 1.6rem;align-items:center;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+  .cmp-row.on{border-color:var(--green-2);background:var(--green-soft)}
+  @media(max-width:760px){.cmp-row{grid-template-columns:1fr}}
+  .cmp-l b{display:block;font-size:1.02rem;color:var(--ink)}
+  .cmp-l span{display:block;margin-top:.3rem;font-size:.82rem;line-height:1.7;color:var(--ink-3)}
+  .cmp-bar{display:flex;align-items:center;gap:.8rem;min-height:3.2rem;flex-wrap:nowrap}
+  .cmp-bar i{display:block;flex:none;height:2.6rem;border-radius:8px}
+  .c-gray{background:#B9AFA4}.c-clay{background:#D58A5F}.c-green{background:var(--green-2)}
+  .cmp-bar em{font-style:normal;font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#1d1d1d;white-space:nowrap}
+  .cmp-row.on .cmp-bar em{color:var(--green)}
+  .cmp-row.on .cmp-bar{flex-wrap:wrap;gap:.2rem .8rem;padding:.2rem 0}
+  .cmp-bar u{text-decoration:none;font-size:.8rem;font-weight:700;color:var(--ink-3);flex-basis:100%}
+  @media(max-width:760px){.cmp-bar{flex-wrap:wrap}}
+  .cmp-sum{margin-top:1rem;padding:1.3rem 1.4rem;border-radius:14px;background:#B8471F;color:#fff}
+  .cmp-sum>b{display:block;font-size:.9rem;letter-spacing:.1em;color:#FFE9DA}
+  .cmp-3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.8rem}
+  @media(max-width:640px){.cmp-3{grid-template-columns:1fr}}
+  .cmp-3>div{padding:.8rem 1rem;border-radius:10px;background:rgba(255,255,255,.12)}
+  .cmp-3>div.on{background:#fff;color:#2A1D14}
+  .cmp-3 span{display:block;font-size:.8rem;opacity:.9}
+  .cmp-3 strong{display:block;margin-top:.2rem;font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.7rem);white-space:nowrap}
+  .cmp-sum p{margin:.9rem 0 0;font-size:.9rem;line-height:1.8;color:#FFF3EA}
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important;}</style></noscript>
 
@@ -1038,31 +1063,28 @@
       <div class="hire rise">
         <h3>人を増やす前に。事務代行に出す前に。</h3>
         <p class="lead">集計や転記が回らないとき、医院がとる手は2つです。人を増やすか、事務代行に出すか。どちらも<b>人が動くぶん、毎年かかり続けます。</b>そして人を雇えば採用と教育の手間がかかり、辞めればまた振り出しに戻ります。</p>
-        <div class="hire-grid hire3">
-          <div class="hire-box">
-            <div class="t">パートの事務スタッフを1人</div>
-            <div class="v">年 約<i class="cnum" data-to="200">0</i>万円</div>
-            <div class="n">週5日・1日6時間・時給1,200円の場合。社会保険の医院負担を含めた概算です。採用と教育の手間は別にかかります。</div>
+        <div class="cmp rise">
+          <div class="cmp-row">
+            <div class="cmp-l"><b>パートの事務スタッフ1人</b><span>週5日・1日6時間・時給1,200円。社会保険の医院負担を含む概算です（採用と教育の手間は別）</span></div>
+            <div class="cmp-bar"><i class="c-gray" style="width:50%"></i><em>年 約200万円</em></div>
           </div>
-          <div class="hire-box">
-            <div class="t">歯科専門の事務代行に出す</div>
-            <div class="v">年 <i class="cnum" data-to="102">0</i>〜<i class="cnum" data-to="240">0</i>万円</div>
-            <div class="n">各社が公表している月額8.5万〜20万円から算出。人が対応するため、依頼できる時間の上限が決まっているのが一般的です。</div>
+          <div class="cmp-row">
+            <div class="cmp-l"><b>事務代行（当院が実際に払っていた金額）</b><span>月148,500円×12か月。ほかの歯科向け事務代行は、年102〜240万円（各社の公表額から計算）</span></div>
+            <div class="cmp-bar"><i class="c-clay" style="width:44.6%"></i><em>年 約178万円</em></div>
           </div>
-          <div class="hire-box on">
-            <div class="t">第2領域</div>
-            <div class="v">初年度 <i class="cnum" data-to="56">0</i>万円<br>2年目以降 年<i class="cnum" data-to="36">0</i>万円</div>
-            <div class="n">はじめの構築20万円＋月額3万円で計算。採用も教育も、辞めることもありません。</div>
+          <div class="cmp-row on">
+            <div class="cmp-l"><b>第2領域</b><span>はじめの構築20万円＋月額3万円。採用も、教育も、辞められることもありません</span></div>
+            <div class="cmp-bar"><i class="c-green" style="width:14%"></i><em>初年度 56万円</em><u>2年目以降は、年36万円</u></div>
           </div>
         </div>
-        <div class="hire-turn">
-          <b>2か月目で、雇うより安くなります。</b>
-          <span>人を雇う場合と比べて1年で約144万円、3年では約470万円の差。事務代行に出す場合と比べても、初年度で年46万〜184万円の差になります。</span>
-        </div>
-        <div class="hire-risk">
-          <div><b><i>0</i>円　採用コスト</b><p>求人広告も、面接も、条件交渉もありません。</p></div>
-          <div><b><i>0</i>日　教育期間</b><p>引き継ぎも研修も不要。決めた翌週から同じ精度で動きます。</p></div>
-          <div><b>退職リスク　<i>なし</i></b><p>辞めません。担当が代わっても、手順ごと残ります。</p></div>
+        <div class="cmp-sum rise">
+          <b>3年間で比べると</b>
+          <div class="cmp-3">
+            <div><span>パート</span><strong>600万円</strong></div>
+            <div><span>事務代行（当院の実績）</span><strong>約535万円</strong></div>
+            <div class="on"><span>第2領域</span><strong>128万円</strong></div>
+          </div>
+          <p>パートと比べて約472万円、当院の事務代行と比べて約407万円の差になります。月ごとに見ると、2か月目から、雇うより安くなります。</p>
         </div>
         <p class="cap">ただし、人にしかできない仕事があります。電話に出ること、患者さんに声をかけること、迷ったときに考えること。<strong>AIが引き受けるのは、人がやる必要のない作業だけです。</strong>スタッフを減らすための道具ではなく、いまいるスタッフが本来の仕事に戻るための道具だと思ってください。</p>
       </div>
