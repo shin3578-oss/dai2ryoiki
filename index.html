@@ -505,6 +505,20 @@
   .mband{background:#FBF1E4;color:var(--ink);padding:clamp(3.4rem,7vw,5.2rem) 0;border-top:1px solid #EBDCC6;border-bottom:1px solid #EBDCC6}
   .mband .eyebrow{color:#9A4A22}
   .mband h2{margin:.9rem 0 0;font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.55;font-weight:600;color:#2A1D14}
+  .mb-hero{margin-top:2rem;padding:1.6rem 1.4rem 1.5rem;border-radius:16px;background:#2A1D14;text-align:center;color:#FFE9DA}
+  .mb-hl{display:block;font-size:.95rem;font-weight:700;letter-spacing:.04em}
+  .mb-hero b{display:block;margin:.5rem 0 .3rem;font-family:var(--serif);font-size:clamp(2.8rem,9vw,6rem);line-height:1.05;font-weight:600;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .mb-hero b i{font-style:normal;font-size:.4em;margin-left:.15em}
+  .mb-hs{display:block;font-size:.88rem;line-height:1.8;color:#F3D9C4}
+  .mb-pair{display:grid;gap:1.4rem;margin-top:1.6rem}
+  .mb-case{padding:1.2rem 1.2rem 1.3rem;border-radius:16px;background:#FFF8EE;border:1px solid #E8D9C3}
+  .mb-ct{display:flex;align-items:center;gap:.7rem;font-size:1.05rem;font-weight:700;color:#2A1D14}
+  .mb-no{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;background:#B8471F;color:#fff;font-family:var(--serif)}
+  .mb-case .mb-eq{margin-top:1rem}
+  .mb-case .mb-box b{font-size:clamp(1.5rem,3vw,2.3rem)}
+  .mb-case .mb-res b{font-size:clamp(1.7rem,3.4vw,2.6rem)}
+  .mb-case{min-width:0}
+  .mb-case .mb-box{min-width:0;padding:1.1rem .6rem}
   .mb-eq{display:grid;grid-template-columns:1fr auto 1fr auto 1.15fr;gap:.8rem;align-items:center;margin-top:2rem}
   @media(max-width:900px){.mb-eq{grid-template-columns:1fr;gap:.4rem}}
   .mb-box{padding:1.3rem 1.3rem 1.2rem;border-radius:14px;background:#fff;border:1px solid #E8D9C3;text-align:center}
@@ -573,6 +587,17 @@
   .why-photo{float:right;width:min(42%,340px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:16px;margin:0 0 1rem 1.6rem;box-shadow:0 14px 34px rgba(18,74,64,.18)}
   @media(max-width:720px){.why-photo{float:none;display:block;width:100%;max-width:420px;margin:0 auto 1.2rem}}
   .staff-photo{display:block;width:100%;height:auto;border-radius:14px;aspect-ratio:16/9;object-fit:cover}
+
+  /* ---- ヒーローの自動化の件数（2026-10-29） ---- */
+  .autoband{grid-column:1/-1;padding:1.6rem 1.4rem 1.3rem;border-radius:16px;background:rgba(241,246,243,.08);border:1px solid rgba(241,246,243,.22)}
+  .ab-head{font-size:.95rem;font-weight:700;letter-spacing:.04em;color:var(--hero-mint)}
+  .ab-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1rem;margin-top:1rem}
+  @media(max-width:760px){.ab-grid{grid-template-columns:1fr 1fr}.ab-all{grid-column:1/-1}}
+  .ab-c b{display:block;font-family:var(--serif);font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;font-weight:600;color:var(--hero-ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ab-all b{font-size:clamp(3.4rem,10vw,6.4rem);color:#fff}
+  .ab-c b u{text-decoration:none;font-size:.38em;margin-left:.15em;color:var(--hero-mint)}
+  .ab-c span{display:block;margin-top:.5rem;font-size:.92rem;font-weight:700;color:var(--hero-ink)}
+  .ab-foot{margin-top:1rem;font-size:.85rem;color:var(--hero-muted)}
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important;}</style></noscript>
 
@@ -611,8 +636,17 @@
       </div>
 
       <div class="figures rise">
-        <div class="figure"><b><i class="cnum" data-to="100">0</i><span class="u">以上</span></b><span>稼働中の自動化（台帳・2026年10月29日）</span></div>
-        <div class="figure"><b><i class="cnum" data-to="45">0</i><span class="u">件</span></b><span>そのうち、毎日動いているもの</span></div>
+        <div class="autoband rise">
+        <div class="ab-head">いま自院で動いている自動化（台帳・2026年10月29日）</div>
+        <div class="ab-grid">
+          <div class="ab-c ab-all"><b><i class="cnum" data-to="106">0</i><u>件</u></b><span>稼働中の自動化</span></div>
+          <div class="ab-c"><b><i class="cnum" data-to="45">0</i><u>件</u></b><span>毎日動いているもの</span></div>
+          <div class="ab-c"><b><i class="cnum" data-to="32">0</i><u>件</u></b><span>毎月動いているもの</span></div>
+          <div class="ab-c"><b><i class="cnum" data-to="13">0</i><u>件</u></b><span>毎週動いているもの</span></div>
+        </div>
+        <div class="ab-foot">ほか、必要なときに動くものなどが16件。</div>
+      </div>
+      
         <div class="figure"><b><i class="cnum" data-to="3.5" data-dec="1">0</i><span class="u">億円</span></b><span>1医院での年商（分院なし）</span></div>
       </div>
     </div>
@@ -623,17 +657,40 @@
   <section class="mband" id="money">
     <div class="wrap">
       <div class="kicker rise"><span class="eyebrow">当院の実際の金額</span></div>
-      <h2 class="rise"><span class="nw">事務代行をやめて、AIにしたら、</span><span class="nw">毎月 約11万円 浮きます。</span></h2>
-      <div class="mb-eq rise">
-        <div class="mb-box"><span class="mb-t">事務代行に<br>払っていたお金</span><b>148,500<i>円</i></b><span class="mb-u">毎月</span></div>
-        <div class="mb-op">−</div>
-        <div class="mb-box"><span class="mb-t">AIに<br>払うお金</span><b>約33,000<i>円</i></b><span class="mb-u">毎月</span></div>
-        <div class="mb-op">＝</div>
-        <div class="mb-box mb-res"><span class="mb-t">毎月、浮くお金</span><b>約115,500<i>円</i></b><span class="mb-u">年に約139万円</span></div>
+      <h2 class="rise"><span class="nw">AIにしたら、事務の費用が</span><span class="nw">これだけ変わります。</span></h2>
+
+      <div class="mb-hero rise">
+        <span class="mb-hl">これまでに事務代行へ払った金額（30か月・2024年3月〜2026年8月）</span>
+        <b>4,770,700<i>円</i></b>
+        <span class="mb-hs">約477万円。請求書台帳の30回分の合計です。事務代行は2026年11月末で終了します。</span>
       </div>
+
+      <div class="mb-pair">
+        <div class="mb-case rise">
+          <div class="mb-ct"><span class="mb-no">A</span>いまの事務代行と比べると</div>
+          <div class="mb-eq">
+            <div class="mb-box"><span class="mb-t">事務代行<br>（当院の実績）</span><b>148,500<i>円</i></b><span class="mb-u">毎月</span></div>
+            <div class="mb-op">−</div>
+            <div class="mb-box"><span class="mb-t">AIに払う<br>お金</span><b>約33,000<i>円</i></b><span class="mb-u">毎月</span></div>
+            <div class="mb-op">＝</div>
+            <div class="mb-box mb-res"><span class="mb-t">毎月、浮く</span><b>約115,500<i>円</i></b><span class="mb-u">年に約139万円</span></div>
+          </div>
+        </div>
+        <div class="mb-case rise">
+          <div class="mb-ct"><span class="mb-no">B</span>事務スタッフを雇う場合と比べると</div>
+          <div class="mb-eq">
+            <div class="mb-box"><span class="mb-t">パートの事務<br>スタッフ1人</span><b>約166,700<i>円</i></b><span class="mb-u">毎月（年約200万円）</span></div>
+            <div class="mb-op">−</div>
+            <div class="mb-box"><span class="mb-t">AIに払う<br>お金</span><b>約33,000<i>円</i></b><span class="mb-u">毎月</span></div>
+            <div class="mb-op">＝</div>
+            <div class="mb-box mb-res"><span class="mb-t">毎月、浮く</span><b>約133,700<i>円</i></b><span class="mb-u">年に約160万円</span></div>
+          </div>
+        </div>
+      </div>
+
       <ul class="mb-notes rise">
         <li>事務代行は<b>2026年11月末で終了</b>します。浮くのは12月からです。</li>
-        <li>これまでに事務代行へ払った金額は、30か月（2024年3月〜2026年8月）で<b>4,770,700円</b>です。</li>
+        <li>パートの事務スタッフは、週5日・1日6時間・時給1,200円で、社会保険の医院負担を含む概算（年約200万円）です。採用と教育の手間は、別にかかります。</li>
         <li>AIの月額プランは月$220（1ドル=150円で換算した目安）。当院の請求書台帳とAIの領収書で確かめた数字です。<a href="#numbers">くわしく見る →</a></li>
       </ul>
     </div>
@@ -916,7 +973,7 @@
         <div class="vs-row">
           <div class="vs-k">つくる人</div>
           <div class="vs-a">医療の資格を持たない担当者が、指示されたとおりに手を動かします。なぜその作業が必要なのかまでは分かりません。</div>
-          <div class="vs-b"><b>毎日診療している歯科医師です。</b>ユニットに座り、スタッフを抱え、月末の数字を見ている人間が、自分の医院のために作ったものをお渡しします。</div>
+          <div class="vs-b"><b>現役の歯科医師です。診療は週3日です。</b>ユニットに座り、スタッフを抱え、月末の数字を見ている人間が、自分の医院のために作ったものをお渡しします。</div>
         </div>
         <div class="vs-row">
           <div class="vs-k">実績</div>
@@ -1015,7 +1072,7 @@
         <div>
           <div class="role">運営者</div>
           <h3><span class="nw">都内・1医院で</span><span class="nw">年商3.5億円の</span><br><span class="nw">歯科医療法人 理事長</span></h3>
-          <p>いまも毎日、患者さんを診ています。そのかたわらでAIを研究し、自院の業務を次々と自動化してきました。人を雇う重さも、辞められる痛みも、月末に数字が合わない不安も、全部やってきた側です。だからこそ、何がしんどいのかを説明しなくても分かります。</p>
+          <p>いまも現役で、週3日、患者さんを診ています。昔は毎日診療していましたが、自院の業務を次々と自動化してきたおかげで、いまは週3日です。ほかの日は、院長にしかできないことに集中しています。人を雇う重さも、辞められる痛みも、月末に数字が合わない不安も、全部やってきた側です。だからこそ、何がしんどいのかを説明しなくても分かります。</p>
           <div class="tags"><span>現役の歯科医師</span><span>歯科医療法人 理事長</span><span>自院で100以上を稼働中</span></div>
         </div>
       </div>
