@@ -566,6 +566,13 @@
   .cmp-3 span{display:block;font-size:.8rem;opacity:.9}
   .cmp-3 strong{display:block;margin-top:.2rem;font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.7rem);white-space:nowrap}
   .cmp-sum p{margin:.9rem 0 0;font-size:.9rem;line-height:1.8;color:#FFF3EA}
+
+  /* ---- 人物の写真（2026-10-29） ---- */
+  .profile .seal.seal-photo{width:132px;height:132px;padding:0;overflow:hidden;background:var(--green-soft);border:3px solid #fff;box-shadow:0 12px 30px rgba(18,74,64,.28)}
+  .profile .seal.seal-photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .why-photo{float:right;width:min(42%,340px);aspect-ratio:1/1;object-fit:cover;border-radius:16px;margin:0 0 1rem 1.6rem;box-shadow:0 14px 34px rgba(18,74,64,.18)}
+  @media(max-width:720px){.why-photo{float:none;display:block;width:100%;max-width:420px;margin:0 auto 1.2rem}}
+  .staff-photo{display:block;width:100%;height:auto;border-radius:14px}
 </style>
 <noscript><style>.rise{opacity:1!important;transform:none!important;}</style></noscript>
 
@@ -1004,7 +1011,7 @@
       </div>
 
       <div class="profile rise">
-        <div class="seal"><span class="k">院</span></div>
+        <div class="seal seal-photo"><img src="img/person-op.jpg" alt="歯科医師のポートレート" width="300" height="300" loading="lazy"></div>
         <div>
           <div class="role">運営者</div>
           <h3><span class="nw">都内・1医院で</span><span class="nw">年商3.5億円の</span><br><span class="nw">歯科医療法人 理事長</span></h3>
