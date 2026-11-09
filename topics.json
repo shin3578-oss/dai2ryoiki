@@ -69,16 +69,14 @@
       "slug": "kiji-nyuryoku-more",
       "title": "来たのに算定されていない患者は、月内なら間に合う",
       "posted": "2026-11-02"
+    },
+    {
+      "slug": "kiji-mendan-kiroku",
+      "title": "面談の記録を書くのをやめたら、面談が変わった",
+      "posted": "2026-11-09"
     }
   ],
   "queue": [
-    {
-      "slug": "kiji-mendan-kiroku",
-      "menu": "39",
-      "title": "面談の記録を書くのをやめたら、面談が変わった",
-      "angle": "記録に気を取られると相手を見られない。録音→要約→決まったことだけ残す。",
-      "posted": ""
-    },
     {
       "slug": "kiji-douga-manual",
       "menu": "55",
