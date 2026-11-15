@@ -79,16 +79,14 @@
       "slug": "kiji-karte-kinyu",
       "title": "診療の録音から、カルテの記入が夜のうちに終わる仕組み",
       "posted": "2026-11-10"
+    },
+    {
+      "slug": "kiji-douga-manual",
+      "title": "「前に教えましたよね」を言わずに済む院内マニュアル",
+      "posted": "2026-11-16"
     }
   ],
   "queue": [
-    {
-      "slug": "kiji-douga-manual",
-      "menu": "55",
-      "title": "「前に教えましたよね」を言わずに済む院内マニュアル",
-      "angle": "手順は動画で残せる。増えた動画を探せる形に保つところまでが自動化。",
-      "posted": ""
-    },
     {
       "slug": "kiji-oubosha",
       "menu": "64",
